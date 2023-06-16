@@ -1,4 +1,5 @@
-SRCS = Account.cpp
+SRCS = 	Account.cpp \
+		tests.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = account
