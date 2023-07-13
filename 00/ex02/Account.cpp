@@ -47,6 +47,8 @@ void Account::displayAccountsInfos() {
                 << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 Account::Account(int initial_deposit){
+    _nbDeposits = 0;
+    _nbWithdrawals = 0;
     _amount = initial_deposit;
     _nbAccounts++;
     _totalAmount += _amount;
@@ -58,7 +60,7 @@ Account::Account(int initial_deposit){
 
 Account::~Account() {
     _nbAccounts--;
-    _totalAmount -= _amount;
+    // _totalAmount -= _amount;
     displayAccountsInfos();
     std::cout << " index:" << _accountIndex
         << ";amount:" << _amount
@@ -66,7 +68,6 @@ Account::~Account() {
 }
 
 
-// --------------------------------------
 void	Account::makeDeposit(int deposit) {
     _nbDeposits++;
     _totalNbDeposits++;

@@ -1,9 +1,8 @@
 SRCS = 	main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
+		Harl.cpp \
 
 CFLAGS =  -std=c++98
-NAME = Brain
+NAME = harl
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf

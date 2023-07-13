@@ -10,6 +10,7 @@ HumanA::HumanA(Weapon Weapon)
 void    HumanA::attack(void){
     std::cout << Weapon->name << " attacks with their " << Weapon->getType<< std::endl;
 }
+
 HumanA::~HumanA(void){
     std::cout << "HumanA has been destroyed" << std::endl;
 }

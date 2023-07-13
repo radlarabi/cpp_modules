@@ -1,4 +1,4 @@
-#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 class HumanB
 {

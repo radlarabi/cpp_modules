@@ -1,9 +1,7 @@
 SRCS = 	main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
 
 CFLAGS =  -std=c++98
-NAME = Brain
+NAME = fileReplace
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf

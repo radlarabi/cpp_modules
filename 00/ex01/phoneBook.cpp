@@ -133,7 +133,7 @@ void    welcome(void)
     std::cout << "Welcome to the Phone Book : " << std::endl;
     std::cout << "The program only accepts ADD, SEARCH and EXIT" << std::endl;
     std::cout << " • ADD    : save a new contact" << std::endl;
-    std::cout << " • SEARCH : display a specific contact" << std::endl;
+    std::cout << " • SEARCH : display a specific contact" << std::endl; 
     std::cout << " • EXIT   : quit the program" << std::endl;
 }
 

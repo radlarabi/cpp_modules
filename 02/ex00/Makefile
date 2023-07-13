@@ -1,6 +1,5 @@
 SRCS = 	main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
+		Fixed.cpp \
 
 CFLAGS =  -std=c++98
 NAME = Brain
