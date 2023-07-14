@@ -1,6 +1,22 @@
 #include "phoneBook.hpp"
 
 
+Contact::Contact()
+{
+    
+}
+Contact::~Contact()
+{
+
+}
+PhoneBook::PhoneBook()
+{
+    
+}
+PhoneBook::~PhoneBook()
+{
+
+}
 void    PhoneBook::display_all(void)
 {
     std::cout << "---------------------------------------------" << std::endl;
@@ -106,6 +122,17 @@ std::string get_input(std::string str)
                 if (!isStringAlpha(input))
                     std::cout << "please enter digits !!\n";
             } while (!isStringAlpha(input));
+        }
+        else if (str.compare("enter your dark Secret  : "))
+        {
+            do
+            {
+                std::cout << str;
+                if (std::getline(std::cin,input).eof())
+                    exit(1);
+                if (isStringAlpha(input))
+                    std::cout << "please enter caracters !!\n";
+            } while (isStringAlpha(input));
         }
         else
         {

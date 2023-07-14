@@ -1,9 +1,10 @@
 SRCS = 	main.cpp \
 		HumanA.cpp \
 		HumanB.cpp \
+		Weapon.cpp \
 
-CFLAGS =  -std=c++98
-NAME = Brain
+CPPFLAGS =  -std=c++98
+NAME = weapon
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
@@ -12,7 +13,7 @@ CC = c++
 all: $(NAME)
 
 $(NAME): $(O_SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	$(RM) $(O_SRCS)

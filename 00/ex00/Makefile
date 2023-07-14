@@ -1,6 +1,6 @@
 SRCS = megaphone.cpp
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = megaphone
 O_SRCS = $(SRCS:%.cpp=%.o)
 
@@ -10,7 +10,7 @@ CC = c++
 all: $(NAME)
 
 $(NAME): $(O_SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	$(RM) $(O_SRCS)

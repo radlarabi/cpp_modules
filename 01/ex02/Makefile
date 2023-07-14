@@ -1,6 +1,6 @@
 SRCS = 	main.cpp \
 
-CFLAGS =  -std=c++98
+CPPFLAGS =  -std=c++98
 NAME = Brain
 O_SRCS = $(SRCS:%.cpp=%.o)
 
@@ -10,7 +10,7 @@ CC = c++
 all: $(NAME)
 
 $(NAME): $(O_SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	$(RM) $(O_SRCS)

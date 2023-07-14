@@ -1,14 +1,15 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(Weapon Weapon)
+HumanA::HumanA(std::string name, Weapon &Wpn):Wpn(Wpn)
 {
-    this->Weapon = Weapon;
-    this->name = Weapon->name;
-    std::std::cout << "HumanA has been created" << std::endl;
+    // this->Wpn = Wpn;
+    this->name = name;
+    std::cout << "HumanA has been created" << std::endl;
 }
 
+
 void    HumanA::attack(void){
-    std::cout << Weapon->name << " attacks with their " << Weapon->getType<< std::endl;
+    std::cout << this->name << " attacks with their " << Wpn.getType() << std::endl;
 }
 
 HumanA::~HumanA(void){
