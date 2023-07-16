@@ -29,7 +29,7 @@ int    main(int ac, char **av)
     int i;
 
     i = 1;
-    if (ac > 1)
+    if (ac == 2)
     {
         while(ac > i)
         {
@@ -37,6 +37,14 @@ int    main(int ac, char **av)
             i++;   
         }
         std::cout << std::endl;
+    }
+    else if (ac == 1)
+    {
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl; 
+    }
+    else if (ac > 2)
+    {
+        std::cout << "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF." << std::endl; 
     }
     return 0;
 }
