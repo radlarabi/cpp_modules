@@ -76,6 +76,15 @@ void    PhoneBook::add(void)
 bool isStringAlpha(std::string str) {
 
     for (size_t i = 0; i < str.length(); i++) {
+        if (!isalpha(str[i]))
+            return false;
+    }
+    return true;
+}   
+
+bool isNumbersOnly(std::string str) {
+
+    for (size_t i = 0; i < str.length(); i++) {
         if (!isdigit(str[i]))
             return false;
     }
@@ -90,9 +99,9 @@ int get_index(int nbrContacts)
         std::cout << "> please enter an index : ";
         if (std::getline(std::cin,buffer).eof())
             exit(1);
-        if (!isStringAlpha(buffer) ||  atoi(buffer.c_str()) > nbrContacts - 1 || buffer.length() == 0)
+        if (!isNumbersOnly(buffer) ||  atoi(buffer.c_str()) > nbrContacts - 1 || buffer.length() == 0)
             std::cout << "> Invalid index\n";
-    } while (!isStringAlpha(buffer) ||  atoi(buffer.c_str()) > nbrContacts - 1 || buffer.length() == 0);
+    } while (!isNumbersOnly(buffer) ||  atoi(buffer.c_str()) > nbrContacts - 1 || buffer.length() == 0);
     return atoi(buffer.c_str());
 }
 
@@ -119,9 +128,9 @@ std::string get_input(std::string str)
                 std::cout << str;
                 if (std::getline(std::cin,input).eof())
                     exit(1);
-                if (!isStringAlpha(input))
+                if (!isNumbersOnly(input))
                     std::cout << "please enter digits !!\n";
-            } while (!isStringAlpha(input));
+            } while (!isNumbersOnly(input));
         }
         else if (str.compare("enter your dark Secret  : "))
         {
@@ -130,9 +139,9 @@ std::string get_input(std::string str)
                 std::cout << str;
                 if (std::getline(std::cin,input).eof())
                     exit(1);
-                if (isStringAlpha(input))
+                if (!isStringAlpha(input))
                     std::cout << "please enter caracters !!\n";
-            } while (isStringAlpha(input));
+            } while (!isStringAlpha(input));
         }
         else
         {

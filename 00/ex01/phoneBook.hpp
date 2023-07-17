@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-
+#include <cstdlib>
 class Contact
 {
 private:
