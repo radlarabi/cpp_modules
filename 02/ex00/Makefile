@@ -1,8 +1,8 @@
 SRCS = 	main.cpp \
 		Fixed.cpp \
 
-CPPFLAGS =  -std=c++98
-NAME = Brain
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
+NAME = Fixed
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
