@@ -21,7 +21,12 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
 
-    Fixed    operator+(Fixed const &fixed1, Fixed const &fixed2);
+    float	operator+(Fixed fixed) const;
+    float	operator/(Fixed fixed) const;
+    float	operator-(Fixed fixed) const;
+    float	operator*(Fixed fixed) const;
+
+    Fixed operator++(void);
 };
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
 #endif

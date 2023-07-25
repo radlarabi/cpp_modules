@@ -17,7 +17,6 @@ Fixed::Fixed(const float fp)
 Fixed::Fixed(const int fp)
 {
     setRawBits(fp << this->numFract);
-    // this->fp = fp << this->numFract;
     std::cout << "Int constructor called" << std::endl;
 }
 
@@ -25,7 +24,6 @@ Fixed::Fixed(const Fixed &fixed)
 {
     std::cout << "Copy constructor called" << std::endl;
     setRawBits(fixed.fp);
-    // this->fp = fixed.fp;
 }
 
 Fixed::~Fixed()
@@ -37,7 +35,6 @@ Fixed::~Fixed()
 void Fixed::operator=(const Fixed &fixed)
 {
     setRawBits(fixed.fp);
-    // this->fp = fixed.fp;
     std::cout << "Copy assignment operator called" << std::endl;
 }
 
@@ -64,6 +61,28 @@ std::ostream &operator << (std::ostream &out, Fixed const &fixed){
     out << fixed.toFloat();
     return out;
 }
-Fixed Fixed::operator + (Fixed const &fixed1, Fixed const &fixed2){
-    return Fixed(fixed1.fp + fixed2.fp);
+
+// Arithmetic operations
+
+float	Fixed::operator+(Fixed fixed) const{
+    return (this->toFloat() + fixed.toFloat());
+}
+
+float	Fixed::operator-(Fixed fixed) const{
+    return (this->toFloat() - fixed.toFloat());
+}
+
+float	Fixed::operator*(Fixed fixed) const{
+    return (this->toFloat() * fixed.toFloat());
+}
+
+float	Fixed::operator/(Fixed fixed) const{
+    return (this->toFloat() / fixed.toFloat());
+}
+
+// increment & decrement
+
+Fixed Fixed::operator++(void) {
+    this->fp++;
+    return (*this);
 }
