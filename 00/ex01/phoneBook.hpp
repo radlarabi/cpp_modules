@@ -1,3 +1,6 @@
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -32,3 +35,7 @@ public:
     void search(void);
     void display_all(void);
 };
+
+void    welcome(void);
+
+#endif

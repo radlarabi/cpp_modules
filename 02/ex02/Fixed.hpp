@@ -26,7 +26,15 @@ public:
     float	operator-(Fixed fixed) const;
     float	operator*(Fixed fixed) const;
 
+    Fixed operator--(int);
+    Fixed operator++(int);
+    Fixed operator--(void);
     Fixed operator++(void);
+
+    Fixed operator<(Fixed fixed);
+    Fixed operator>(Fixed fixed);
+    Fixed operator<=(Fixed fixed);
+    Fixed operator>=(Fixed fixed);
 };
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlarabi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/06/07 18:28:13 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/07/26 19:06:10 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int    main(int ac, char **av)
         while(ac > i)
         {
             print_upper(av[i]);
-            i++;   
+            i++;
         }
         std::cout << std::endl;
     }

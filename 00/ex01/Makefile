@@ -1,4 +1,5 @@
-SRCS = phoneBook.cpp
+SRCS = phoneBook.cpp \
+		main.cpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
