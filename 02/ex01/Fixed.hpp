@@ -9,6 +9,7 @@ class Fixed
 private:
     int fp;
     static const int numFract;
+
 public:
     Fixed ();
     Fixed (const int fp);

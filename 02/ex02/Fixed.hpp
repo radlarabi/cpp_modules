@@ -28,13 +28,20 @@ public:
 
     Fixed operator--(int);
     Fixed operator++(int);
-    Fixed operator--(void);
-    Fixed operator++(void);
+    Fixed &operator--(void);
+    Fixed &operator++(void);
 
-    Fixed operator<(Fixed fixed);
-    Fixed operator>(Fixed fixed);
-    Fixed operator<=(Fixed fixed);
-    Fixed operator>=(Fixed fixed);
+    bool operator<(Fixed fixed);
+    bool operator>(Fixed fixed);
+    bool operator<=(Fixed fixed);
+    bool operator>=(Fixed fixed);
+    bool operator==(Fixed fixed);
+    bool operator!=(Fixed fixed);
+
+    static const Fixed &max(Fixed &a, Fixed const &b);
+    static const Fixed &min(Fixed &a, Fixed const &b);
+    static Fixed &max(Fixed &a, Fixed &b);
+    static Fixed &min(Fixed &a, Fixed &b);
 };
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
 #endif

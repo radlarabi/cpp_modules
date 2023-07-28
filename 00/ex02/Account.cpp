@@ -30,7 +30,7 @@ void Account::_displayTimestamp() {
     std::time_t currentTime = std::time(nullptr);
 
     std::tm* localTime = std::localtime(&currentTime);
-    std::cout << std::setfill('0') << "[" 
+    std::cout << std::setfill('0') << "["
         << localTime->tm_year + 1900 
         <<  std::setw(2) << localTime->tm_mon + 1
         << std::setw(2) << localTime->tm_mday
