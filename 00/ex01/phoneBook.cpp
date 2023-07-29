@@ -17,6 +17,7 @@ PhoneBook::~PhoneBook()
 {
 
 }
+
 void    PhoneBook::display_all(void)
 {
     std::cout << "---------------------------------------------" << std::endl;
@@ -74,22 +75,33 @@ void    PhoneBook::add(void)
 }
 
 bool isStringAlpha(std::string str) {
-
-    for (size_t i = 0; i < str.length(); i++) {
+    size_t i = 0;
+    while (str[i] && isspace(str[i]))
+        i++;
+    if (!str[i])
+        return false;
+    while (i < str.length()) {
         if (!isalpha(str[i]))
+        {
+            if (i != 0 && isspace(str[i]))
+            {
+                i++;
+                continue;
+            }
             return false;
+        }
+        i++;
     }
     return true;
-}   
+}
 
 bool isNumbersOnly(std::string str) {
-
     for (size_t i = 0; i < str.length(); i++) {
         if (!isdigit(str[i]))
             return false;
     }
     return true;
-}   
+}
 
 int get_index(int nbrContacts)
 {
@@ -150,7 +162,7 @@ std::string get_input(std::string str)
                 exit(1);
         }
         if (!input.length())
-            std::cout << "Wrong Index, try again !\n";
+            std::cout << "Emptie Input, try again !\n";
     } while(input.length() == 0);
     return input;
 }
