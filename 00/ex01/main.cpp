@@ -3,7 +3,6 @@
 int main(void)
 {
     PhoneBook phone;
-    phone.nbrContacts = 0;
     std::string input;
     welcome();
     while(1)

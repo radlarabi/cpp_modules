@@ -11,7 +11,7 @@ Contact::~Contact()
 }
 PhoneBook::PhoneBook()
 {
-    
+    this->nbrContacts = 0;
 }
 PhoneBook::~PhoneBook()
 {
