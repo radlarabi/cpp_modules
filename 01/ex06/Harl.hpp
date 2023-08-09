@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:19:29 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:19:30 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/08/09 11:19:36 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/08/09 11:19:37 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include <iostream>
+#include <string>
 
-int main()
+class Harl
 {
-    Harl *harl = new Harl();
-    harl->complain("WARNING");
-    delete harl;
-    return 0;
-}
+private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+public:
+    Harl();
+    ~Harl();
+    void complain( std::string level );
+};
