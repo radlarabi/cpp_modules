@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:18:18 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:18:19 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/08/09 15:17:09 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ class PhoneBook
 {
 private:
     Contact contact[8];
+    int nbrContacts;
+    void display_all(void);
 public:
     PhoneBook();
     ~PhoneBook();
-    int nbrContacts;
     void add(void);
     void search(void);
-    void display_all(void);
 };
 
 void    welcome(void);
