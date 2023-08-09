@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:18:21 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:18:22 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/08/09 15:50:21 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	Account::getNbWithdrawals( void ){
 }
 
 void Account::_displayTimestamp() {
-    std::time_t currentTime = std::time(nullptr);
+    std::time_t currentTime = std::time(NULL);
 
     std::tm* localTime = std::localtime(&currentTime);
     std::cout << std::setfill('0') << "["
