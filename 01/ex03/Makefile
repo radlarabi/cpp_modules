@@ -3,7 +3,7 @@ SRCS = 	main.cpp \
 		HumanB.cpp \
 		Weapon.cpp \
 
-CPPFLAGS =  -std=c++98
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = weapon
 O_SRCS = $(SRCS:%.cpp=%.o)
 

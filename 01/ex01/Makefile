@@ -2,7 +2,7 @@ SRCS = 	main.cpp \
 		zombieHorde.cpp \
 		Zombie.cpp \
 
-CPPFLAGS =  -std=c++98
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = Zombie
 O_SRCS = $(SRCS:%.cpp=%.o)
 

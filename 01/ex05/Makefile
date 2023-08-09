@@ -1,7 +1,7 @@
 SRCS = 	main.cpp \
 		Harl.cpp \
 
-CPPFLAGS =  -std=c++98
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = harl
 O_SRCS = $(SRCS:%.cpp=%.o)
 

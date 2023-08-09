@@ -1,6 +1,6 @@
 SRCS = 	main.cpp \
 
-CPPFLAGS =  -std=c++98
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = fileReplace
 O_SRCS = $(SRCS:%.cpp=%.o)
 
