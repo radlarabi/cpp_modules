@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:16 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:17 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/08/09 14:54:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+
 class Fixed
 {
 private:
@@ -34,26 +35,8 @@ public:
     int toInt( void ) const;
 
     float	operator+(Fixed fixed) const;
-    float	operator/(Fixed fixed) const;
     float	operator-(Fixed fixed) const;
     float	operator*(Fixed fixed) const;
-
-    Fixed operator--(int);
-    Fixed operator++(int);
-    Fixed &operator--(void);
-    Fixed &operator++(void);
-
-    bool operator<(Fixed fixed);
-    bool operator>(Fixed fixed);
-    bool operator<=(Fixed fixed);
-    bool operator>=(Fixed fixed);
-    bool operator==(Fixed fixed);
-    bool operator!=(Fixed fixed);
-
-    static const Fixed &max(Fixed &a, Fixed const &b);
-    static const Fixed &min(Fixed &a, Fixed const &b);
-    static Fixed &max(Fixed &a, Fixed &b);
-    static Fixed &min(Fixed &a, Fixed &b);
 };
-std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
+
 #endif

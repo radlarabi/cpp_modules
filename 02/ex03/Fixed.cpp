@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/08/09 14:53:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,6 @@ int Fixed::toInt( void ) const{
 }
 
 
-// operations << 
-
-std::ostream &operator << (std::ostream &out, Fixed const &fixed){
-    out << fixed.toFloat();
-    return out;
-}
-
 // Arithmetic operations
 
 float	Fixed::operator+(Fixed fixed) const{
@@ -78,92 +71,4 @@ float	Fixed::operator-(Fixed fixed) const{
 
 float	Fixed::operator*(Fixed fixed) const{
     return (this->toFloat() * fixed.toFloat());
-}
-
-float	Fixed::operator/(Fixed fixed) const{
-    return (this->toFloat() / fixed.toFloat());
-}
-
-// pre-increment & pre-decrement
-
-Fixed &Fixed::operator++(void) {
-    this->fp++;
-    return (*this);
-}
-
-Fixed &Fixed::operator--(void) {
-    this->fp--;
-    return (*this);
-}
-
-// post-increment & post-decrement
-
-Fixed	Fixed::operator++(int){
-    Fixed tmp = *this;
-    this->fp++;
-    return  tmp;
-}
-
-Fixed	Fixed::operator--(int){
-    Fixed tmp = *this;
-    this->fp--;
-    return  tmp;
-}
-
-// comparison operators  <, > ,>=, <=, == and !=
- 
-bool Fixed::operator<(Fixed fixed){
-    return this->getRawBits() < fixed.getRawBits();
-}
-
-bool Fixed::operator>(Fixed fixed){
-    return this->getRawBits() > fixed.getRawBits();
-}
-
-bool Fixed::operator<=(Fixed fixed){
-    return this->getRawBits() <= fixed.getRawBits();
-}
-
-bool Fixed::operator>=(Fixed fixed){
-    return this->getRawBits() >= fixed.getRawBits();
-}
-
-bool Fixed::operator==(Fixed fixed){
-    return this->getRawBits() == fixed.getRawBits();
-}
-
-bool Fixed::operator!=(Fixed fixed){
-    return this->getRawBits() != fixed.getRawBits();
-}
-
-// Max and Min (const)
-
-Fixed const &Fixed::max(Fixed &a, Fixed const &b){
-    if (a.toFloat() > b.toFloat())
-        return a;
-    else
-        return b;
-}
-
-Fixed const &Fixed::min(Fixed &a, Fixed const &b){
-    if (a.toFloat() < b.toFloat())
-        return a;
-    else
-        return b;
-}
-
-// Max and Min  
-
-Fixed &Fixed::max(Fixed &a, Fixed &b){
-    if (a.toFloat() > b.toFloat())
-        return a;
-    else
-        return b;
-}
-
-Fixed &Fixed::min(Fixed &a, Fixed &b){
-    if (a.toFloat() < b.toFloat())
-        return a;
-    else
-        return b;
 }
