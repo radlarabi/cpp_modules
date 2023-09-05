@@ -6,16 +6,14 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:00 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:19:01 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/09/02 12:42:59 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &Wpn):Wpn(Wpn)
+HumanA::HumanA(std::string name, Weapon &Wpn):Wpn(Wpn), name(name)
 {
-    // this->Wpn = Wpn;
-    this->name = name;
     std::cout << "HumanA has been created" << std::endl;
 }
 

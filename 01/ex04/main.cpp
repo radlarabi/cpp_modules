@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:19:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/09/02 13:51:12 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ int main(int ac, char **av)
                 fileContent += "\n";
             }
             if (output.is_open())
-            {
                 output << fileContent << std::endl;
-            }
             else
             {
                 std::cout << "error creating " << av[2] << std::endl;
@@ -43,6 +41,11 @@ int main(int ac, char **av)
         }
         input.close();
         output.close();
+    }
+    else
+    {
+        std::cout << "error argument " << std::endl;
+        return 1;
     }
     return 0;
 }

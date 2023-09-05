@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:18:57 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:18:58 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/09/02 12:39:51 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void) {
     std::cout << "adress of stringREF is : " << &stringREF << std::endl << std::endl << std::endl;
 
     std::cout << "value of brain is : " << brain << std::endl;
-    std::cout << "value of stringPTR is : " << stringPTR << std::endl;
+    std::cout << "value of stringPTR is : " << *stringPTR << std::endl;
     std::cout << "value of stringREF is : " << stringREF << std::endl;
 
     return 0;

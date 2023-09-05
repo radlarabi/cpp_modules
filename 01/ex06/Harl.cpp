@@ -6,19 +6,17 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:19:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/09/04 14:27:31 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 Harl::Harl()
 {
-    // std::cout << "contructor called" << std::endl;
 }
 
 Harl::~Harl()
 {
-    // std::cout << "destructor called" << std::endl;`
 }
 
 void Harl::debug(void){
