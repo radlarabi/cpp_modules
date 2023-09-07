@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:05 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/09/02 12:43:21 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/09/07 20:23:27 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    HumanB::attack(void){
 }
 
 HumanB::~HumanB(void){
-    std::cout << "HumanB has been destroyed" << std::endl;
+    std::cout << "HumanB has been destroyed " << std::endl;
 }
 
 void    HumanB::setWeapon(Weapon &Wpn)
