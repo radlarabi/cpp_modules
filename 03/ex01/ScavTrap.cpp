@@ -16,15 +16,22 @@ ScavTrap::ScavTrap()
 {
     std::cout << "Default constractor called" << std::endl;
 }
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "destractor called" << std::endl;
 }
-ScavTrap::ScavTrap(std::string name)
+
+ScavTrap::ScavTrap(std::string _name)
 {
-    ClapTrap(name);
+    ClapTrap(_name);
     this->hitPoint = 100;
     this->energyPoint = 50;
     this->attackDamage = 20;
-    std::cout << "ScavTrap " << name << " called" << std::endl;
+    std::cout << "ScavTrap " << _name << " called" << std::endl;
+}
+
+void ScavTrap::guardGate()
+{
+    std::cout << "ScavTrap " << this->name << " is now in Gate Keeper mode" << std::endl;
 }

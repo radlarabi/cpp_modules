@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:20:42 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:43 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/10/10 10:38:11 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/10/10 11:43:12 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
+#include "Animal.hpp"
 
-int main( void )
+
+class Cat : public Animal
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( "ash2" );
+    public:
+        Cat();
+        ~Cat();
+        Cat(Cat const &src);
+        Cat operator=(Cat const &src);
+        void makeSound() const;
+};
 
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
 
-    return 0;
-}
+#endif

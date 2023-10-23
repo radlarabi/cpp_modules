@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:20:42 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:43 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/10/23 19:58:35 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/10/23 19:59:22 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-
-int main( void )
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+class WrongAnimal
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( "ash2" );
-
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
-
-    return 0;
-}
+    protected:
+        std::string	_type;
+    public:
+        WrongAnimal();
+        WrongAnimal(std::string type);
+        WrongAnimal(WrongAnimal const &c);
+        ~WrongAnimal();
+        WrongAnimal &operator=(WrongAnimal const &c);
+        std::string	getType() const;
+        void		makeSound() const;
+};
+#endif

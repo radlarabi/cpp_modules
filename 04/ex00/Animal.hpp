@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:20:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 16:18:39 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/10/10 10:38:05 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/10/10 12:52:55 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 #include <iostream>
 #include <string>
 
-class ClapTrap
+class Animal
 {
-private:
-    std::string name;
-    int hitPoint;
-    int energyPoint;
-    int attackDamage;
-
-public:
-    ClapTrap();
-    ClapTrap(std::string name);
-    ClapTrap(ClapTrap const &claptrap);
-    ~ClapTrap();
-    void operator = (const ClapTrap &clapTrap);
-    void attack(const std::string& target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    protected:
+        std::string	_type;
+    public:
+        Animal();
+        ~Animal();
+        Animal(std::string type);
+        Animal(Animal const &src);
+        Animal operator=(Animal const &src);
+        std::string	getType() const;
+        void makeSound() const;
 };
-
-
 
 #endif
