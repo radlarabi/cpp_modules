@@ -6,12 +6,15 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:58:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/23 19:59:22 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/10/25 11:59:28 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
+#include <iostream>
+#include <string>
+
 class WrongAnimal
 {
     protected:
@@ -20,9 +23,9 @@ class WrongAnimal
         WrongAnimal();
         WrongAnimal(std::string type);
         WrongAnimal(WrongAnimal const &c);
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         WrongAnimal &operator=(WrongAnimal const &c);
         std::string	getType() const;
-        void		makeSound() const;
+        virtual void		makeSound() const;
 };
 #endif

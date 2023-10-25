@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:58:32 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/23 20:32:40 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/10/25 12:00:03 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ WrongAnimal::WrongAnimal(WrongAnimal const &src) {
     *this = src;
 }
 
-WrongAnimal WrongAnimal::operator = (WrongAnimal const &src) {
+WrongAnimal& WrongAnimal::operator = (WrongAnimal const &src) {
     std::cout << "WrongAnimal assignation operator called" << std::endl;
     if (this != &src)
         this->_type = src._type;

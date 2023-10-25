@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:17 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/23 21:18:13 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/10/25 12:01:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,52 @@
 #include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
-int main()
-{
-    std::cout << "Animal" << std::endl;
-    
-    const Animal *meta = new Animal();
-    const Animal *i = new Cat();
-    const Animal *j = new Dog();
+int main() {
+	std::cout << "==========  GOOD  ANIMALS  ==========\n" << std::endl;
 
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << j->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+	Animal *animal = new Animal();
+	Animal *dog = new Dog();
+	Animal *cat = new Cat();
 
-    std::cout << "Wrong Animal" << std::endl;
-    
-    const WrongAnimal *a = new WrongCat();
+	std::cout << std::endl;
 
-    std::cout << a->getType() << " " << std::endl;
-    a->makeSound();
-    return 0;
+	std::cout << animal->getType() << std::endl;
+	std::cout << dog->getType() << std::endl;
+	std::cout << cat->getType() << std::endl;
+
+	std::cout << std::endl;
+
+	animal->makeSound();
+	dog->makeSound();
+	cat->makeSound();
+
+	std::cout << std::endl;
+
+	delete animal;
+	delete dog;
+	delete cat;
+
+	/**********************************************************/
+
+	std::cout << "\n========== WRONG ANIMALS ==========\n" << std::endl;
+
+	WrongAnimal *wAnimal = new WrongAnimal();
+	WrongAnimal *wCat = new WrongCat();
+
+	std::cout << std::endl;
+
+	std::cout << wAnimal->getType() << std::endl;
+	std::cout << wCat->getType() << std::endl;
+
+	std::cout << std::endl;
+
+	wAnimal->makeSound();
+	wCat->makeSound();
+
+	std::cout << std::endl;
+
+	delete wAnimal;
+	delete wCat;
 }

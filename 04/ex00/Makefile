@@ -1,8 +1,10 @@
 SRCS = 	main.cpp \
 		Animal.cpp \
-		WrongAnimal.cpp \
 		Cat.cpp \
 		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp \
+
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = Animal
