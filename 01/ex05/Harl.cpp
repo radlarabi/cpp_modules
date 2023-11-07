@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/09/01 19:28:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/02 13:52:45 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,3 @@ void Harl::complain( std::string level ){
     
 
 }
-
-
-
-// declare a pointer to member function
