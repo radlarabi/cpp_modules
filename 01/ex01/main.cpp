@@ -6,14 +6,16 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:18:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:18:44 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/07 22:01:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main(void) {
-    Zombie *hordeZombie = zombieHorde(5, "Foo");
+    Zombie *hordeZombie = zombieHorde(-1, "Foo");
+    if(!hordeZombie)
+        return 1;
     for (size_t i = 0; i < 5; i++)
     {
         hordeZombie[i].announce();

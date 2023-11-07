@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   444.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/09/02 13:51:12 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:26:30 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+
+std::string findAndReplace(std::string line, std::string find, std::string toReplace)
+{
+    if(find == toReplace || !find.length())
+        return line;
+    size_t position = line.find(find);
+    while (position != std::string::npos)
+    {
+        line.erase(position, find.length());
+        line.insert(position, toReplace);
+        position = line.find(find);
+    }
+    return line;
+}
+
 int main(int ac, char **av)
 {
     std::string line;
     std::string fileContent;
-    if (ac == 3)
+    if (ac == 4)
     {
         std::ifstream input(av[1]);
-        std::ofstream output(av[2]);
+        std::string fileName = av[1];
+        std::string find = av[2];
+        std::string toReplace = av[3];
         if (input.is_open())
         {
             while (std::getline(input, line)) {
-                fileContent += line;
+                fileContent += findAndReplace(line, find, toReplace);
                 fileContent += "\n";
             }
+            std::ofstream output(fileName + ".replace");
             if (output.is_open())
                 output << fileContent << std::endl;
             else
@@ -33,6 +51,7 @@ int main(int ac, char **av)
                 std::cout << "error creating " << av[2] << std::endl;
                 return 1;
             }
+            output.close();
         }
         else
         {
@@ -40,7 +59,6 @@ int main(int ac, char **av)
             return 1;
         }
         input.close();
-        output.close();
     }
     else
     {
@@ -49,3 +67,4 @@ int main(int ac, char **av)
     }
     return 0;
 }
+
