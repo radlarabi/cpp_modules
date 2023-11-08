@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/08 21:12:36 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/08 22:29:05 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ void Harl::complain( std::string level ){
         &Harl::warning,
         &Harl::error
     };
+    
     std::string lvl[] = {
         "DEBUG",
         "INFO" ,
         "WARNING",
         "ERROR"
     };
-    int i;
+    
+    int i = 0;
     for(i = 0; i < 4; i++)
     {
         if (lvl[i] == level)
@@ -60,13 +62,10 @@ void Harl::complain( std::string level ){
     {
         case 0:
             (this->*funcPtr[0])();
-            i = 1;
         case 1:
             (this->*funcPtr[1])();
-            i = 2;
         case 2:
             (this->*funcPtr[2])();
-            i = 3;
         case 3:
             (this->*funcPtr[3])();
             break;
