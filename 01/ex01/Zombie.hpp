@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:18:50 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/11 13:23:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:15:50 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Zombie
 {
 public:
     Zombie();
-    Zombie(int N, std::string name);
     ~Zombie();
     void announce( void );
     void setName(std::string name);

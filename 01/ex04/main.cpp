@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <fstream>
 
 std::string findAndReplace(std::string line, std::string find, std::string toReplace)
