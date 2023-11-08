@@ -48,7 +48,7 @@ int main(int ac, char **av)
                 output << fileContent << std::endl;
             else
             {
-                std::cout << "error creating " << av[2] << std::endl;
+                std::cout << "error creating " << fileName + ".replace" << std::endl;
                 return 1;
             }
             output.close();
