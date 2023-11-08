@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/02 13:52:45 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/08 21:10:55 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,16 @@ void Harl::error(void){
 
 
 void Harl::complain( std::string level ){
-    Harl obj;
     void (Harl::*funcPtr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string lvl[] = {"DEBUG", "INFO" , "WARNING", "ERROR"};
     for(int i = 0; i < 4; i++)
     {
         if (lvl[i] == level)
         {
-            (obj.*funcPtr[i])();
+            (this->*funcPtr[i])();
             break;
         }
     }
-    
+    std::cout << "this level not found !!" << std::endl;
 
 }
