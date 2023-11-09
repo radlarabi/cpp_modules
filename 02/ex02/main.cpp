@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:06 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:07 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/09 21:59:32 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int main( void ) {
 
     Fixed a;
-
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed c = Fixed(5.05f);
+    Fixed d = Fixed(0);
+    
+    Fixed const b( c / d );
 
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;

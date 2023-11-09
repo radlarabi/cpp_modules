@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:01 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 11:20:02 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/09 22:00:23 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const float fp)
 {
-    this->fp = std::roundf(fp * (1 << this->numFract));
+    setRawBits(std::roundf(fp * (1 << this->numFract)));
 }
 
 Fixed::Fixed(const int fp)
@@ -68,20 +68,27 @@ std::ostream &operator << (std::ostream &out, Fixed const &fixed){
 
 // Arithmetic operations
 
-float	Fixed::operator+(Fixed fixed) const{
-    return (this->toFloat() + fixed.toFloat());
+Fixed	Fixed::operator+(Fixed fixed){
+    this->fp += fixed.fp;
+    return *this;
 }
 
-float	Fixed::operator-(Fixed fixed) const{
-    return (this->toFloat() - fixed.toFloat());
+Fixed	Fixed::operator-(Fixed fixed){
+    this->fp -= fixed.fp;
+    return *this;
+}  
+
+Fixed	Fixed::operator*(Fixed fixed)
+{
+    this->fp *= fixed.getRawBits() / (1 << numFract);
+    return *this;
 }
 
-float	Fixed::operator*(Fixed fixed) const{
-    return (this->toFloat() * fixed.toFloat());
-}
-
-float	Fixed::operator/(Fixed fixed) const{
-    return (this->toFloat() / fixed.toFloat());
+Fixed	Fixed::operator/(Fixed fixed) {
+    if (!fixed.getRawBits())
+        return *this;
+    this->fp /= fixed.getRawBits() / (1 << numFract);
+    return *this;
 }
 
 // pre-increment & pre-decrement
@@ -139,14 +146,14 @@ bool Fixed::operator!=(Fixed fixed){
 // Max and Min (const)
 
 Fixed const &Fixed::max(Fixed &a, Fixed const &b){
-    if (a.toFloat() > b.toFloat())
+    if (a.getRawBits() > b.getRawBits())
         return a;
     else
         return b;
 }
 
 Fixed const &Fixed::min(Fixed &a, Fixed const &b){
-    if (a.toFloat() < b.toFloat())
+    if (a.getRawBits() < b.getRawBits())
         return a;
     else
         return b;
@@ -155,14 +162,14 @@ Fixed const &Fixed::min(Fixed &a, Fixed const &b){
 // Max and Min  
 
 Fixed &Fixed::max(Fixed &a, Fixed &b){
-    if (a.toFloat() > b.toFloat())
+    if (a.getRawBits() > b.getRawBits())
         return a;
     else
         return b;
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b){
-    if (a.toFloat() < b.toFloat())
+    if (a.getRawBits() < b.getRawBits())
         return a;
     else
         return b;
