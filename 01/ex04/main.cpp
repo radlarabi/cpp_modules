@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   444.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:19:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/07 23:26:30 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/11/09 17:20:20 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/11/09 17:20:24 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ std::string findAndReplace(std::string line, std::string find, std::string toRep
     {
         line.erase(position, find.length());
         line.insert(position, toReplace);
-        position = line.find(find);
+        position = line.find(find, position + toReplace.length());
     }
     return line;
 }
