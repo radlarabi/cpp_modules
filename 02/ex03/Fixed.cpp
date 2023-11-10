@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 14:53:39 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/10 23:45:05 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,12 @@ float	Fixed::operator-(Fixed fixed) const{
 
 float	Fixed::operator*(Fixed fixed) const{
     return (this->toFloat() * fixed.toFloat());
+}
+
+bool Fixed::operator==(Fixed fixed){
+    return this->getRawBits() == fixed.getRawBits();
+}
+
+bool Fixed::operator!=(Fixed fixed){
+    return this->getRawBits() != fixed.getRawBits();
 }
