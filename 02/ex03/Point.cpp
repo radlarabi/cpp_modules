@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:21 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 14:54:46 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/11 00:04:01 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ Point &Point::operator=(const Point &p) {
     return *this;
 }
 
-const Fixed Point::getX(void) const{
+Fixed Point::getX(void) const{
     return x;
 }
 
-const Fixed Point::getY(void) const{
+Fixed Point::getY(void) const{
     return y;
 }

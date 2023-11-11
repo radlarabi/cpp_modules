@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/10 23:45:05 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/11 00:35:40 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const float fp)
 {
-    this->fp = std::roundf(fp * (1 << this->numFract));
+    this->fp = roundf(fp * (1 << this->numFract));
 }
 
 Fixed::Fixed(const int fp)
@@ -61,16 +61,27 @@ int Fixed::toInt( void ) const{
 
 // Arithmetic operations
 
-float	Fixed::operator+(Fixed fixed) const{
-    return (this->toFloat() + fixed.toFloat());
+Fixed	Fixed::operator+(Fixed fixed){
+    this->fp += fixed.fp;
+    return *this;
 }
 
-float	Fixed::operator-(Fixed fixed) const{
-    return (this->toFloat() - fixed.toFloat());
+Fixed	Fixed::operator-(Fixed fixed){
+    this->fp -= fixed.fp;
+    return *this;
+}  
+
+Fixed	Fixed::operator*(Fixed fixed)
+{
+    this->fp *= fixed.getRawBits() / (1 << numFract);
+    return *this;
 }
 
-float	Fixed::operator*(Fixed fixed) const{
-    return (this->toFloat() * fixed.toFloat());
+Fixed	Fixed::operator/(Fixed fixed) {
+    if (!fixed.getRawBits())
+        return *this;
+    this->fp /= fixed.getRawBits() / (1 << numFract);
+    return *this;
 }
 
 bool Fixed::operator==(Fixed fixed){
@@ -79,4 +90,13 @@ bool Fixed::operator==(Fixed fixed){
 
 bool Fixed::operator!=(Fixed fixed){
     return this->getRawBits() != fixed.getRawBits();
+}
+
+bool Fixed::operator<(Fixed fixed){
+    return this->getRawBits() < fixed.getRawBits();
+}
+
+std::ostream &operator << (std::ostream &out, Fixed const &fixed){
+    out << fixed.toFloat();
+    return out;
 }

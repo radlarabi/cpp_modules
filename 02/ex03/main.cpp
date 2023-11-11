@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 14:50:11 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/11 00:15:26 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main() {
     Point a(0.0, 0.0);
     Point b(1.0, 0.0);
     Point c(0.0, 1.0);
-    Point point(0.5, 0.5);
+    Point point(0.5, 0.4);
 
     bool inside = bsp(a, b, c, point);
 

@@ -6,23 +6,32 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:11 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/08/09 14:51:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/11 01:17:03 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
+Fixed area(Point const a, Point const b, Point const c){
+    Fixed area = a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY());
+    if (area < 0)
+        return (area / 2) * -1;
+    return (area / 2);
+}
+
 bool bsp( Point const a, Point const b, Point const c, Point const o){
     
-    double areaABC = 0.5 * std::abs(a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY()));
+    Fixed areaABC = area(a, b, c);
+    
+    Fixed areaOBC = area(o, b, c);
+    
+    Fixed areaOAC = area(a ,o, c);
+    
+    Fixed areaOAB = area(a ,b, o);
 
-    double areaOBC = 0.5 * std::abs(o.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - o.getY()) + c.getX() * (o.getY() - b.getY()));
-
-    double areaOAC = 0.5 * std::abs(a.getX() * (o.getY() - c.getY()) + o.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - o.getY()));
-
-    double areaOAB = 0.5 * std::abs(a.getX() * (b.getY() - o.getY()) + b.getX() * (o.getY() - a.getY()) + o.getX() * (a.getY() - b.getY()));
-
-    if ((areaOBC + areaOAC + areaOAB == areaABC) && areaABC && areaOBC && areaOAC && areaOAB)
+    if (areaABC == 0 || areaOBC == 0 || areaOAC == 0 || areaOAB == 0)
+        return false;
+    if ((areaOBC + areaOAC + areaOAB == areaABC))
         return true;
     return false;
 }
