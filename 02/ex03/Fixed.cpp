@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/11 00:35:40 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/12 01:37:24 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ int Fixed::toInt( void ) const{
 
 // Arithmetic operations
 
-Fixed	Fixed::operator+(Fixed fixed){
+Fixed	Fixed::operator+(Fixed fixed)
+{
     this->fp += fixed.fp;
     return *this;
 }
@@ -71,16 +72,16 @@ Fixed	Fixed::operator-(Fixed fixed){
     return *this;
 }  
 
-Fixed	Fixed::operator*(Fixed fixed)
+Fixed	Fixed::operator*(const  Fixed& fixed)
 {
-    this->fp *= fixed.getRawBits() / (1 << numFract);
+    this->fp *= fixed.getRawBits();
     return *this;
 }
 
 Fixed	Fixed::operator/(Fixed fixed) {
     if (!fixed.getRawBits())
         return *this;
-    this->fp /= fixed.getRawBits() / (1 << numFract);
+    this->fp /= fixed.getRawBits();
     return *this;
 }
 
@@ -97,6 +98,7 @@ bool Fixed::operator<(Fixed fixed){
 }
 
 std::ostream &operator << (std::ostream &out, Fixed const &fixed){
+    std::cout << "fixed " << fixed.getRawBits() << std::endl;
     out << fixed.toFloat();
     return out;
 }

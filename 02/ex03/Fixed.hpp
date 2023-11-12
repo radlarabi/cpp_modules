@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:16 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/11 00:36:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/12 01:20:43 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 
     Fixed	operator+(Fixed fixed);
     Fixed	operator-(Fixed fixed);
-    Fixed	operator*(Fixed fixed);
+    Fixed	operator*(const Fixed& fixed);
     Fixed	operator/(Fixed fixed);
 
     bool    operator==(Fixed fixed);
