@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/09 21:55:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/12 18:07:38 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
 
-    Fixed	operator+(Fixed fixed) ;
-    // Fixed operator + (const Fixed& other);
-
-    Fixed	operator/(Fixed fixed) ;
-    Fixed	operator-(Fixed fixed) ;
-    Fixed	operator*(Fixed fixed) ;
+    Fixed	operator+(Fixed fixed);
+    Fixed	operator/(Fixed fixed);
+    Fixed	operator-(Fixed fixed);
+    Fixed	operator*(Fixed fixed);
 
     Fixed operator--(int);
     Fixed operator++(int);
@@ -52,8 +50,8 @@ public:
     bool operator==(Fixed fixed);
     bool operator!=(Fixed fixed);
 
-    static const Fixed &max(Fixed &a, Fixed const &b);
-    static const Fixed &min(Fixed &a, Fixed const &b);
+    static const Fixed &max(Fixed const &a, Fixed const &b);
+    static const Fixed &min(Fixed const &a, Fixed const &b);
     static Fixed &max(Fixed &a, Fixed &b);
     static Fixed &min(Fixed &a, Fixed &b);
 };

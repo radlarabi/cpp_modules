@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:19:53 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/09 20:34:44 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/12 17:34:29 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const float fp)
 {
-    setRawBits(std::roundf(fp * (1 << this->numFract)));
+    setRawBits(roundf(fp * (1 << this->numFract)));
     std::cout << "Float constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:01 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/12 01:37:51 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/12 17:54:04 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const float fp)
 {
-    setRawBits(std::roundf(fp * (1 << this->numFract)));
+    setRawBits(roundf(fp * (1 << this->numFract)));
 }
 
 Fixed::Fixed(const int fp)
@@ -146,14 +146,14 @@ bool Fixed::operator!=(Fixed fixed){
 
 // Max and Min (const)
 
-Fixed const &Fixed::max(Fixed &a, Fixed const &b){
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b){
     if (a.getRawBits() > b.getRawBits())
         return a;
     else
         return b;
 }
 
-Fixed const &Fixed::min(Fixed &a, Fixed const &b){
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b){
     if (a.getRawBits() < b.getRawBits())
         return a;
     else
