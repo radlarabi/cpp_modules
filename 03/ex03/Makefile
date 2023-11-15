@@ -2,6 +2,7 @@ SRCS = 	main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
 		FragTrap.cpp \
+		DiamondTrap.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:38 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:44:18 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:54:36 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ ClapTrap::~ClapTrap()
 {
     std::cout << this->name << " has been destroyed" << std::endl;
 }
+
 ClapTrap::ClapTrap(ClapTrap const &claptrap)
 {
     name = claptrap.name;
@@ -44,6 +45,7 @@ void ClapTrap::operator=(const ClapTrap &clapTrap)
     this->energyPoint = clapTrap.energyPoint;
     this->attackDamage = clapTrap.attackDamage;
 }
+
 void    ClapTrap::attack(const std::string &target)
 {
     if (energyPoint <= 0)
@@ -54,6 +56,7 @@ void    ClapTrap::attack(const std::string &target)
     std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     energyPoint--;
 }
+
 void ClapTrap::takeDamage(unsigned int amount){
     if ((unsigned int)hitPoint > amount)
     {
@@ -63,6 +66,7 @@ void ClapTrap::takeDamage(unsigned int amount){
     std::cout << "ClapTRap " << this->name << "t ake damage with " << amount << " of point" << std::endl; 
     hitPoint -= amount;
 }
+
 void ClapTrap::beRepaired(unsigned int amount){
     if (energyPoint <= 0)
     {
