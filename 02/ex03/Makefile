@@ -1,7 +1,7 @@
 SRCS = 	main.cpp \
 		Fixed.cpp \
 		Point.cpp \
-		bsq.cpp \
+		bsp.cpp \
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = Bsp
