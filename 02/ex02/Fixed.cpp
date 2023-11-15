@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:01 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/12 17:54:04 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 14:36:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ Fixed	Fixed::operator*(Fixed fixed)
 Fixed	Fixed::operator/(Fixed fixed) {
     if (!fixed.getRawBits())
         return *this;
-    this->fp /= fixed.getRawBits() / (1 << numFract);
+    this->fp *= (1 << numFract);
+    this->fp /= fixed.getRawBits();
     return *this;
 }
 
