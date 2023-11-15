@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 11:20:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 17:23:12 by rlarabi          ###   ########.fr       */
+/*   Created: 2023/08/09 11:20:42 by rlarabi           #+#    #+#             */
+/*   Updated: 2023/11/15 17:38:19 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap{
-public:
-    ScavTrap();
-    ScavTrap(std::string name);
-    ~ScavTrap();
-    void guardGate();
-};
-
-#endif
+int main() 
+{
+    ScavTrap claptrap("A");
+    FragTrap claptrap1("B");
+    claptrap.attack("Enemy");
+    claptrap.takeDamage(10);
+    return 0;
+}

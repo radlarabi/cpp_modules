@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/19 14:59:10 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 16:58:07 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void    ClapTrap::attack(const std::string &target)
 {
     if (this->energyPoint > 0 && this->hitPoint > 0)
     {
-        std::cout << "ClapTrap " << this->name << " has no energyPoint :(" << std::endl;
-        return ;
+        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+        energyPoint--;
     }
-    std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
-    energyPoint--;
+    std::cout << "ClapTrap " << this->name << " has no energyPoint :(" << std::endl;
+    return ;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
@@ -65,12 +65,12 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (this->energyPoint > 0 && this->hitPoint > 0)
+    if (this->energyPoint > 0 && this->hitPoint >= 0)
     {
-        std::cout << "ClapTrap " << this->name << " repared itself " << std::endl;
+        std::cout << "ClapTrap " << this->name << " repared itself with amount of " << amount << std::endl;
         energyPoint--;
         hitPoint += amount; 
     }
-        std::cout << "ClapTrap " << this->name << "has no energy Point left :(" << std::endl;
-        return ;
+    std::cout << "ClapTrap " << this->name << " has no energy Point left :(" << std::endl;
+    return ;
 }
