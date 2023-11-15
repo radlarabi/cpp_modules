@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:39 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:04:58 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 22:21:28 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 #define DIAMONDTRAP_HPP
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamonTrap : public ClapTrap, public FragTrap{
+class DiamondTrap : public ClapTrap, public FragTrap{
+private
+    std::string name;
 public:
-    DiamonTrap();    
-    DiamonTrap(DiamonTrap &diamonTrap);
-    DiamonTrap(std::string name);
-    ~DiamonTrap();
+    DiamondTrap();    
+    DiamondTrap(DiamondTrap &diamondTrap);
+    DiamondTrap(std::string name);
+    ~DiamondTrap();
+    void operator = (DiamondTrap const &diamondTrap);
+    void  attack(std::string const & target);
+    void whoAmI(void);
+    
 };
 
 #endif
