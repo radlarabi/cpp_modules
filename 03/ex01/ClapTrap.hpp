@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:40 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 17:27:48 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:44:58 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ protected:
 public:
     ClapTrap();
     ClapTrap(std::string name);
+    ClapTrap(ClapTrap const &claptrap);
     ~ClapTrap();
     void operator = (const ClapTrap &clapTrap);
     void attack(const std::string& target);

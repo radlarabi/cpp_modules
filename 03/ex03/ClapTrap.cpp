@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:38 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:44:18 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:45:18 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ ClapTrap::~ClapTrap()
 {
     std::cout << this->name << " has been destroyed" << std::endl;
 }
-ClapTrap::ClapTrap(ClapTrap const &claptrap)
-{
-    name = claptrap.name;
-    hitPoint = claptrap.hitPoint;
-    energyPoint = claptrap.energyPoint;
-    attackDamage = claptrap.attackDamage;
-}
-
 ClapTrap::ClapTrap(std::string name){
     this->name = name;
     this->hitPoint = 10;
@@ -36,7 +28,13 @@ ClapTrap::ClapTrap(std::string name){
     this->attackDamage = 0;
     std::cout << "ClapTrap " << name << " has been created" << std::endl;
 }
-
+ClapTrap::ClapTrap(ClapTrap const &claptrap)
+{
+    name = claptrap.name;
+    hitPoint = claptrap.hitPoint;
+    energyPoint = claptrap.energyPoint;
+    attackDamage = claptrap.attackDamage;
+}
 void ClapTrap::operator=(const ClapTrap &clapTrap)
 {
     this->name = clapTrap.name;

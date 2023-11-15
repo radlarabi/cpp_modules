@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:38 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 17:16:35 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:44:48 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ ClapTrap::ClapTrap(std::string name){
     this->energyPoint = 10;
     this->attackDamage = 0;
     std::cout << "ClapTrap " << name << " has been created" << std::endl;
+}
+ClapTrap::ClapTrap(ClapTrap const &claptrap)
+{
+    name = claptrap.name;
+    hitPoint = claptrap.hitPoint;
+    energyPoint = claptrap.energyPoint;
+    attackDamage = claptrap.attackDamage;
 }
 
 void ClapTrap::operator=(const ClapTrap &clapTrap)
