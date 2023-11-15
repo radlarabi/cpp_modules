@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:30:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:59:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 22:27:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,14 @@ void FragTrap::operator=(FragTrap const &fragTrap)
     hitPoint = fragTrap.hitPoint;
     energyPoint = fragTrap.energyPoint;
     attackDamage = fragTrap.attackDamage;
+}
+void    FragTrap::attack(const std::string &target)
+{
+    if (energyPoint <= 0)
+    {
+        std::cout << "FragTrap " << this->name << " has no energyPoint :(" << std::endl;
+        return ;
+    }
+    std::cout << "FragTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+    energyPoint--;
 }
