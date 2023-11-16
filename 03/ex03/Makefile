@@ -5,7 +5,7 @@ SRCS = 	main.cpp \
 		DiamondTrap.cpp \
 
 
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = ClapTrap
 O_SRCS = $(SRCS:%.cpp=%.o)
 

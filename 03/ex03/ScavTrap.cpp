@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:44 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:58:19 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 22:33:37 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string _name): ClapTrap(_name)
     std::cout << "ScavTrap " << _name << " called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavTrap)
+ScavTrap::ScavTrap(ScavTrap const &scavTrap) : ClapTrap(scavTrap)
 {
     name = scavTrap.name;
     hitPoint = scavTrap.hitPoint;

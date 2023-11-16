@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:22:33 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/15 22:38:05 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ DiamondTrap::DiamondTrap()
     std::cout << "Default constractor DiamondTrap called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string _name) : ScavTrap(_name + "_clap_name"), FragTrap(_name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name")
 {
-    this->name = _name + "_clap_name";
+    this->name = _name;
     this->hitPoint = FragTrap::hitPoint;
     this->energyPoint = ScavTrap::energyPoint;
     this->attackDamage = FragTrap::attackDamage;
