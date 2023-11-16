@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:30:22 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:59:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 11:25:58 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap{
+class FragTrap : virtual public ClapTrap{
 public:
     FragTrap();
     FragTrap(FragTrap const &fragTrap);

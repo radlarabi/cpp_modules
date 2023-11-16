@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 16:58:07 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 11:19:40 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap()
     std::cout << "default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &claptrap)
+ClapTrap::ClapTrap(const ClapTrap &claptrap)
 {
     name = claptrap.name;
     hitPoint = claptrap.hitPoint;
@@ -48,6 +48,7 @@ void    ClapTrap::attack(const std::string &target)
     {
         std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
         energyPoint--;
+        return ;
     }
     std::cout << "ClapTrap " << this->name << " has no energyPoint :(" << std::endl;
     return ;
@@ -55,21 +56,28 @@ void    ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount){
     
-    if ((amount - this->hitPoint) <= 0)
+    if (this->energyPoint <= 0 || (this->hitPoint - amount) <= 0)
     {
         std::cout << "ClapTrap " << this->name << " has no amount left :(" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << this->name << "take damage with " << amount << " of point" << std::endl; 
-    hitPoint -= amount;
+    std::cout << "ClapTrap " << this->name << " take damage with " << amount << " of point" << std::endl; 
+    this->hitPoint -= amount;
+    this->energyPoint--;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (this->energyPoint > 0 && this->hitPoint >= 0)
+    if (amount > (unsigned int)INT_MAX - this->hitPoint )
+    {
+        std::cout << "amout + hitPoint > INT_MAX" << std::endl;
+        return ;
+    }
+    if (this->energyPoint > 0 && this->hitPoint > 0)
     {
         std::cout << "ClapTrap " << this->name << " repared itself with amount of " << amount << std::endl;
         energyPoint--;
         hitPoint += amount; 
+        return ;
     }
     std::cout << "ClapTrap " << this->name << " has no energy Point left :(" << std::endl;
     return ;
