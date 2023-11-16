@@ -6,13 +6,13 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:44 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 13:46:35 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:33:14 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ScavTrap default constractor called" << std::endl;
 }
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string _name): ClapTrap(_name)
     std::cout << "ScavTrap " << _name << " called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavTrap)
+ScavTrap::ScavTrap(const ScavTrap &scavTrap)
 {
     name = scavTrap.name;
     hitPoint = scavTrap.hitPoint;
@@ -38,23 +38,25 @@ ScavTrap::ScavTrap(ScavTrap const &scavTrap)
     attackDamage = scavTrap.attackDamage;
 }
 
-void ScavTrap::operator=(ScavTrap const &scavTrap)
+ScavTrap &ScavTrap::operator=(const ScavTrap &scavTrap)
 {
     name = scavTrap.name;
     hitPoint = scavTrap.hitPoint;
     energyPoint = scavTrap.energyPoint;
     attackDamage = scavTrap.attackDamage;
+    return *this;
 }
 
 void    ScavTrap::attack(const std::string &target)
 {
-    if (energyPoint <= 0)
+    if (this->energyPoint > 0 && this->hitPoint > 0)
     {
-        std::cout << "ScavTrap " << this->name << " has no energyPoint :(" << std::endl;
+        std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+        energyPoint--;
         return ;
     }
-    std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
-    energyPoint--;
+    std::cout << "ScavTrap " << this->name << " has no energyPoint :(" << std::endl;
+    return ;
 }
 
 void ScavTrap::guardGate()

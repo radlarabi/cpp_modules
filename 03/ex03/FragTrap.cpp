@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:30:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:33:52 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:38:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    FragTrap::highFivesGuys(void)
     std::cout << "FragTrap " << this->name << " wants to high five" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &fragTrap): ClapTrap(fragTrap) 
+FragTrap::FragTrap(const FragTrap &fragTrap): ClapTrap(fragTrap) 
 {
     name = fragTrap.name;
     hitPoint = fragTrap.hitPoint;
@@ -42,10 +42,11 @@ FragTrap::FragTrap(FragTrap const &fragTrap): ClapTrap(fragTrap)
     attackDamage = fragTrap.attackDamage;
 }
 
-void FragTrap::operator=(FragTrap const &fragTrap)
+FragTrap &FragTrap::operator=(const FragTrap &fragTrap)
 {
     name = fragTrap.name;
     hitPoint = fragTrap.hitPoint;
     energyPoint = fragTrap.energyPoint;
     attackDamage = fragTrap.attackDamage;
+    return *this;
 }

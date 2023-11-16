@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:30:22 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 21:58:57 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:34:36 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
     FragTrap(FragTrap const &fragTrap);
     FragTrap(std::string name);
     ~FragTrap();
-    void operator=(FragTrap const &fragTrap);
+    FragTrap &operator=(FragTrap const &fragTrap);
     void highFivesGuys(void);
     
 };

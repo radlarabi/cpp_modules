@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:39 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:31:54 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:38:00 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
     DiamondTrap(DiamondTrap &diamondTrap);
     DiamondTrap(std::string name);
     ~DiamondTrap();
-    void operator = (DiamondTrap const &diamondTrap);
+    DiamondTrap &operator = (DiamondTrap const &diamondTrap);
     void  attack(std::string const & target);
     void whoAmI(void);
     

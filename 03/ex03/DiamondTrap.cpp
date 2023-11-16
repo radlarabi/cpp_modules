@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:38:05 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:15:21 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,18 @@ DiamondTrap::~DiamondTrap()
     std::cout << "destractor " << this->name << " DiamondTrap called" << std::endl;
 }
 
-void DiamondTrap::operator=(DiamondTrap const &diamondTrap)
+DiamondTrap& DiamondTrap::operator=(DiamondTrap const &diamondTrap)
 {
     name = diamondTrap.name;
     hitPoint = diamondTrap.hitPoint;
     energyPoint = diamondTrap.energyPoint;
     attackDamage = diamondTrap.attackDamage;
+    return *this;
 }
 
 void    DiamondTrap::whoAmI(void)
 {
+    std::cout << "my name is " << ClapTrap::name << std::endl;
 }
 
 void    DiamondTrap::attack(std::string const & target)

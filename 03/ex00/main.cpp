@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 12:06:29 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 15:41:54 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int main()
 	clap.attack("2");
 	clap.attack("3");
 	clap.attack("4");
-	clap.attack("5");
-	clap.attack("2");
-	clap.attack("3");
 	clap.attack("4");
-    clap.beRepaired(5);
-    clap.takeDamage(3);
+	clap.attack("4");
+    clap.takeDamage(6);
+    clap.beRepaired(10);
+    clap.takeDamage(6);
     return 0;
 }
