@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:42 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/15 22:30:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 17:40:08 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main() 
 {
-    DiamondTrap diamond("Test-DM");
+    DiamondTrap diamond("Test");
     diamond.attack("enemy");
     diamond.whoAmI();
     return 0;
