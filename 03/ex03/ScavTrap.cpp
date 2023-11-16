@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:44 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 16:39:32 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 17:46:10 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap()
 {
-    std::cout << "Default constractor called" << std::endl;
+    std::cout << "ScavTrap default constractor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

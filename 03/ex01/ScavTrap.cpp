@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:44 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 16:33:14 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/16 17:42:49 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string _name): ClapTrap(_name)
     this->hitPoint = 100;
     this->energyPoint = 50;
     this->attackDamage = 20;
-    std::cout << "ScavTrap " << _name << " called" << std::endl;
+    std::cout << "ScavTrap " << _name << " constractor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scavTrap)
