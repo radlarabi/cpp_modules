@@ -4,7 +4,7 @@ SRCS = 	main.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror 
-NAME = ClapTrap
+NAME = ScavTrap
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
