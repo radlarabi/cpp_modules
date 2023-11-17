@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/17 18:16:59 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/17 19:19:48 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap()
     std::cout << "Default constractor DiamondTrap called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name)
 {
     this->name = _name;
     this->hitPoint = 100;
@@ -26,7 +26,7 @@ DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name")
     std::cout << "DiamondTrap " << _name << " called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &diamondTrap)
+DiamondTrap::DiamondTrap(DiamondTrap &diamondTrap): ClapTrap(diamondTrap), ScavTrap(diamondTrap), FragTrap(diamondTrap)
 {
     name = diamondTrap.name;
     hitPoint = diamondTrap.hitPoint;

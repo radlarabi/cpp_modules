@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:30:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 17:44:50 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/17 19:19:21 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    FragTrap::highFivesGuys(void)
     std::cout << "FragTrap " << this->name << " wants to high five" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &fragTrap)
+FragTrap::FragTrap(FragTrap const &fragTrap): ClapTrap(fragTrap)
 {
     name = fragTrap.name;
     hitPoint = fragTrap.hitPoint;
