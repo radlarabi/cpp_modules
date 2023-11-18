@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:11 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/24 12:12:01 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/18 23:45:30 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
         Cat();
         ~Cat();
         Cat(Cat const &src);
-        // Cat operator=(Cat const &src);
+        Cat &operator=(Cat const &src);
         void makeSound() const;
 };
 

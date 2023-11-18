@@ -6,16 +6,14 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:17 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/25 12:01:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/18 23:56:20 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Animal/Dog.hpp"
+#include "Animal/Cat.hpp"
+#include "WrongAnimal/WrongCat.hpp"
 
 int main() {
 	std::cout << "==========  GOOD  ANIMALS  ==========\n" << std::endl;

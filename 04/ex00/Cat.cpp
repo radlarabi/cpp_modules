@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:08 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/25 12:01:58 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/18 23:44:07 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,19 @@ Cat::Cat()
 
 Cat::Cat(Cat const &src) : Animal(src)
 {
-	// *this = src;
     std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat::~Cat()
 {
     std::cout << "Cat destructor called" << std::endl;
+}
+
+Cat& Cat::operator = (Cat const &src) {
+    std::cout << "Cat assignation operator called" << std::endl;
+    if (this != &src)
+        this->_type = src._type;
+    return (*this);
 }
 
 void Cat::makeSound() const
