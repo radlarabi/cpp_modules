@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:20:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/16 16:30:55 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/17 22:16:57 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,11 @@ void    ClapTrap::attack(const std::string &target)
         return ;
     }
     std::cout << "ClapTrap " << this->name << " has no energyPoint :(" << std::endl;
-    return ;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
     
-    if (this->energyPoint <= 0 || (this->hitPoint - (int)amount) <= 0)
+    if ((this->hitPoint - (int)amount) <= 0)
     {
         std::cout << "ClapTrap " << this->name << " has no hitPoint left :(" << std::endl;
         this->hitPoint = 0;
@@ -66,11 +65,10 @@ void ClapTrap::takeDamage(unsigned int amount){
     }
     std::cout << "ClapTrap " << this->name << " take damage with " << amount << " of point" << std::endl; 
     this->hitPoint -= amount;
-    this->energyPoint--;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (amount > (unsigned int)INT_MAX - this->hitPoint )
+    if (amount > (unsigned int)INT_MAX - this->hitPoint)
     {
         std::cout << "amout + hitPoint > INT_MAX" << std::endl;
         return ;
@@ -81,10 +79,6 @@ void ClapTrap::beRepaired(unsigned int amount){
         energyPoint--;
         hitPoint += amount; 
         return ;
-    }
-    if (!this->energyPoint)
-        std::cout << "ClapTrap " << this->name << " has no energy Point left :(" << std::endl;
-    if (!this->hitPoint)
-        std::cout << "ClapTrap " << this->name << " has no hit Point left :(" << std::endl;
-    return ;
+    }   
+    std::cout << "ClapTrap " << this->name << " has no energy Point left :(" << std::endl;
 }

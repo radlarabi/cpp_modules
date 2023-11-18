@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:25:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/17 19:19:48 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/18 16:47:26 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap const &diamondTrap)
 
 void    DiamondTrap::whoAmI(void)
 {
-    std::cout << "my name is " << ClapTrap::name << std::endl;
+    std::cout << "my name is " << this->name << " and my grandfather name is " << ClapTrap::name << std::endl;
 }
 
 void    DiamondTrap::attack(std::string const & target)
