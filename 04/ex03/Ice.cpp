@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:42:03 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 22:13:28 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 22:49:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,8 @@ Ice::~Ice(){
 AMateria* Ice::clone() const{
     AMateria *tmp = new Ice();
     return tmp;
+}
+
+void Ice::use(ICharacter& target){
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

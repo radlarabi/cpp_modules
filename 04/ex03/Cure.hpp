@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:02:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 22:13:46 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 22:39:06 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CURE_HPP
 #include "AMateria.hpp"
 
-class Cure : public Amateria
+class Cure : public AMateria
 {
 public:
     Cure();
@@ -22,6 +22,7 @@ public:
     Cure &operator=(Cure const &cure);
     ~Cure();
     AMateria* clone() const;
+    void use(ICharacter& target);
 };
 
 #endif

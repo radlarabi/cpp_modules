@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:03:26 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 22:12:58 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 22:23:33 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,8 @@ Cure::~Cure(){
 AMateria* Cure::clone() const{
     AMateria *tmp = new Cure();
     return tmp;
+}
+
+void Cure::use(ICharacter& target){
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
