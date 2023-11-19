@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:58:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/25 11:59:28 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 16:32:07 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class WrongAnimal
         WrongAnimal();
         WrongAnimal(std::string type);
         WrongAnimal(WrongAnimal const &c);
-        virtual ~WrongAnimal();
+        ~WrongAnimal();
         WrongAnimal &operator=(WrongAnimal const &c);
         std::string	getType() const;
-        virtual void		makeSound() const;
+        void		makeSound() const;
 };
 #endif
