@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:17 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 01:36:09 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 16:36:17 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal/WrongCat.hpp"
 
 int main() {
-	Animal *arr[10];
+	A_Animal *arr[10];
 	for(int i = 0; i < 5 ; i++)
 	{
 		arr[i] = new Dog();
