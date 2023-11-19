@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:28:07 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 00:31:22 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/19 01:17:43 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ public:
     ~Brain();
     Brain& operator=(Brain const &src);
     std::string *getIdeas();
-    void setIdeas(std::string *ideas);
+    void setIdeas(std::string ideas);
 };
 #endif

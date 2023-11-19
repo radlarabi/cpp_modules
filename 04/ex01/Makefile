@@ -4,9 +4,9 @@ SRCS = 	main.cpp \
 		Animal/Dog.cpp \
 		WrongAnimal/WrongAnimal.cpp \
 		WrongAnimal/WrongCat.cpp \
+		Brain.cpp \
 
-
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = Brain
 O_SRCS = $(SRCS:%.cpp=%.o)
 
