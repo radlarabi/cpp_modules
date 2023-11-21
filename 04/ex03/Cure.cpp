@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:03:26 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 22:23:33 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 19:03:00 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ Cure::Cure(){
     this->type = "cure";
 }
 
-Cure::Cure(Cure &const cure):type(cure.type){
+Cure::Cure(const Cure &cure) {
+    this->type = cure.type;
 }
 
-Cure &Cure::operator = (Curec const &cure){
-    if (this != cure)
+Cure &Cure::operator = (Cure const &cure){
+    if (this != &cure)
         this->type = cure.type;
     return *this;
 }

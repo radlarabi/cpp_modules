@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 17:45:06 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 18:58:35 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,35 @@ Character::Character(){
     // this->adrs = NULL;
 }
 
-Character::Character(Character const &src){
-    // if (*this != src)
-    // {
-    this->slots = src.slots;
-    this->adrs = src.adrs;
-    // }
+Character::Character(std::string _name) : name(_name){
+    for(int i = 0; i < 4 ; i++)
+    {
+        this->slots[i] = NULL;
+    }
+}
+
+Character::Character(Character const &src) : name(src.name) {
+    if (this != &src)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            this->slots[i] = src.slots[i]->clone();
+            this->adrs[i] = src.adrs[i];
+        }
+        
+    }
 }
 
 Character &Character::operator = (Character const &src){
-    this->adrs = src.adrs;
-    this->slots = src.src;
+    if (this != &src)
+    {
+        this->name = src.name;
+        for (int i = 0; i < 4; i++)
+        {
+            this->slots[i] = src.slots[i]->clone();
+            this->adrs[i] = src.adrs[i];
+        }
+    }
     return *this;
 }
 
@@ -46,9 +64,9 @@ void Character::equip(AMateria* m)
     int i = 0;
     for(i = 0; i < 4 ; i++)
     {
-        if (slots[i] != NULL)
+        if (this->slots[i] != NULL)
         {
-            slots[i] = new AMateria(m);
+            this->slots[i] = m;
             break;
         }
     }
@@ -57,13 +75,13 @@ void Character::equip(AMateria* m)
 }
 
 void Character::unequip(int idx){
-    if (i < 4 && i >= 0)
+    if (idx < 4 && idx >= 0)
     {
-        push(this->adrs, this->slots[idx]);
+        push(&this->adrs, this->slots[idx]);
         this->slots[idx] = NULL;
         return ;
     }
-    std::cout << "index must be between 0 and 3 !!" << stdl::endl;
+    std::cout << "index must be between 0 and 3 !!" << std::endl;
 }
 
 void push(Adrs** head, void *adrs){

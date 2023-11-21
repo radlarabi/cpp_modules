@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:58:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 17:32:49 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 18:54:18 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,20 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
+typedef struct SAdrs
+{
+    void *adrs;
+    struct SAdrs *next;
+} Adrs;
+
 class Character : public ICharacter{
 private:
+    std::string name;
     AMateria *slots[4];
-    AMateria *adrs[4];
+    Adrs *adrs;
 public:
     Character();
+    Character(std::string _name);
     Character(Character const &src);
     Character &operator = (Character const &src);
     ~Character();

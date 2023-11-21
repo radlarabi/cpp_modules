@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:02:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 17:32:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 19:03:09 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Cure : public AMateria
 {
 public:
     Cure();
-    Cure(Cure const &cure);
+    Cure(const Cure &cure);
     Cure &operator=(Cure const &cure);
     ~Cure();
     AMateria* clone() const;
