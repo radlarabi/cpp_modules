@@ -1,8 +1,11 @@
 SRCS = 	main.cpp \
 		AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
 
 
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -fsanitize=address
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = Brain
 O_SRCS = $(SRCS:%.cpp=%.o)
 

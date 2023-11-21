@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:40:10 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 22:22:41 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 17:32:24 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define ICE_HPP
 #include "AMateria.hpp"
 
-class Ice : public Amateria
+class Ice : public AMateria
 {
 public:
     Ice();

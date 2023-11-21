@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 16:03:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 16:13:01 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/21 17:40:52 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define AMATERIA_HPP
 #include <iostream>
 #include <string>
+#include "ICharacter.hpp" 
 
 class AMateria
 {
