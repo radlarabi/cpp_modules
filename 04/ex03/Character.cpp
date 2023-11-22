@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 13:00:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 16:03:05 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,13 @@ void Character::equip(AMateria* m)
     int i = 0;
     for(i = 0; i < 4 ; i++)
     {
-        if (this->slots[i] != NULL)
+        if (!this->slots[i])
         {
             this->slots[i] = m;
-            break;
+            return ;
         }
     }
-    if (i == 4)
-        std::cout << "The slots is full" << std::endl;
+    std::cout << "The slots is full" << std::endl;
 }
 
 void Character::unequip(int idx){
@@ -99,5 +98,8 @@ void push(Adrs** head, void *adrs){
 
 void Character::use(int idx, ICharacter& target){
     if (idx >= 0 && idx < 4 && this->slots[idx])
+    {
+        std::cout << "csacsacas" << std::endl;
         this->slots[idx]->use(target);
+    }
 }

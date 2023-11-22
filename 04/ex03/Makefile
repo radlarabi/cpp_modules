@@ -3,6 +3,7 @@ SRCS = 	main.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \
+		MateriaSource.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
