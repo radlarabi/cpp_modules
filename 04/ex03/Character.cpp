@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 18:58:35 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 13:00:08 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Character::Character(Character const &src) : name(src.name) {
         for (int i = 0; i < 4; i++)
         {
             this->slots[i] = src.slots[i]->clone();
-            this->adrs[i] = src.adrs[i];
         }
         
     }
@@ -46,7 +45,6 @@ Character &Character::operator = (Character const &src){
         for (int i = 0; i < 4; i++)
         {
             this->slots[i] = src.slots[i]->clone();
-            this->adrs[i] = src.adrs[i];
         }
     }
     return *this;

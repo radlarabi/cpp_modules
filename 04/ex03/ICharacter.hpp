@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:56:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 18:54:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:57:51 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 class AMateria;
 
 class ICharacter{
-private:
-    std::string name;
 public:
     virtual ~ICharacter() {}
     virtual std::string const & getName() const = 0;
