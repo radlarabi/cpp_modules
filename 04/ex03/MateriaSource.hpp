@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:06:37 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 15:58:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 17:52:34 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class MateriaSource : public IMateriaSource
 {
 private:
     AMateria *slots[4];
+    AMateria *adrs[4];
 public:
     MateriaSource();
     MateriaSource(const MateriaSource &ms);

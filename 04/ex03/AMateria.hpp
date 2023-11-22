@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 16:03:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 17:40:52 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 17:10:58 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
     AMateria(std::string const & type);
     AMateria(AMateria &amateria);
     AMateria &operator=(AMateria &amateria);
-    ~AMateria();
+    virtual ~AMateria();
     std::string const & getType() const;
     virtual AMateria* clone() const = 0;
     virtual void use(ICharacter& target);

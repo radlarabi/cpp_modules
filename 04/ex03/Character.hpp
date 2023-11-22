@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:58:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 13:00:02 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 17:08:22 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,12 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-typedef struct SAdrs
-{
-    void *adrs;
-    struct SAdrs *next;
-} Adrs;
 
 class Character : public ICharacter{
 private:
     std::string name;
     AMateria *slots[4];
-    Adrs *adrs;
+    AMateria *adrs[4];
 public:
     Character();
     Character(std::string _name);
@@ -40,6 +35,5 @@ public:
     void use(int idx, ICharacter& target);  
 };
 
-void push(Adrs** head, void *adrs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:28:24 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 16:06:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/22 17:54:20 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ MateriaSource::MateriaSource(){
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
+        this->adrs[i] = NULL;
     }
 }
 
@@ -38,6 +39,14 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &ms){
 }
 
 MateriaSource::~MateriaSource(){
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->adrs[i])
+            delete this->adrs[i];
+        if (this->slots[i])
+                delete this->slots[i];
+    }
+    
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type){
@@ -54,6 +63,9 @@ void MateriaSource::learnMateria(AMateria * am){
     {
         if (!this->slots[i])
         {
+            if (this->adrs[i])
+                delete this->adrs[i];
+            this->adrs[i] = this->slots[i];
             this->slots[i] = am;
             return;
         }
