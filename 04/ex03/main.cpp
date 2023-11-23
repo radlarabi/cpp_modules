@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:34:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 17:45:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/23 18:35:52 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 
-int main2(){
+int main(){
     IMateriaSource* src = new MateriaSource();
     
     src->learnMateria(new Ice());
@@ -40,12 +40,5 @@ int main2(){
     delete me;
     delete src;
  
-    return 0;
-}
-
-int main()
-{
-    main2();
-    system("leaks Brain");
     return 0;
 }
