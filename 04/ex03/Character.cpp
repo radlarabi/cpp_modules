@@ -6,25 +6,29 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 17:53:42 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 14:38:09 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(){
+    this->adrs = new Adrs;
+    this->adrs->materia = NULL;
+    this->adrs->next = NULL; 
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
-        this->adrs[i] = NULL;
     }
 }
 
 Character::Character(std::string _name) : name(_name){
+    this->adrs = new Adrs;
+    this->adrs->materia = NULL;
+    this->adrs->next = NULL; 
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
-        this->adrs[i] = NULL;
     }
 }
 
@@ -56,8 +60,14 @@ Character::~Character(){
     {
         if (this->slots[i])
             delete this->slots[i];
-        if (this->adrs[i])
-                delete this->adrs[i];
+    }
+    Adrs *tmp;
+    while (this->adrs)
+    {
+        tmp = this->adrs->next;
+        delete this->adrs->materia;
+        delete this->adrs;
+        this->adrs = tmp;
     }
     
 }
@@ -77,15 +87,14 @@ void Character::equip(AMateria* m)
             return ;
         }
     }
+    push(&this->adrs, m);
     std::cout << "The slots is full" << std::endl;
 }
 
 void Character::unequip(int idx){
     if (idx < 4 && idx >= 0)
     {
-        if (this->adrs[idx])
-            delete this->adrs[idx];
-        this->adrs[idx] = this->slots[idx];
+        push(&this->adrs, this->slots[idx]);
         this->slots[idx] = NULL;
         return ;
     }
@@ -95,4 +104,19 @@ void Character::unequip(int idx){
 void Character::use(int idx, ICharacter& target){
     if (idx >= 0 && idx < 4 && this->slots[idx])
         this->slots[idx]->use(target);
+}
+
+void push(Adrs** head, AMateria *adrs){
+    Adrs* newNode = new Adrs;
+    newNode->materia = adrs; 
+    newNode->next = NULL;
+    if (!head)
+    {
+        (*head) = newNode;
+        return ;
+    }
+    Adrs *last = *head;
+    while(!(last->next))
+        last = last->next;
+    last->next = newNode; 
 }

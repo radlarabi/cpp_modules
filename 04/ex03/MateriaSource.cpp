@@ -6,17 +6,19 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:28:24 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 17:54:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 14:38:23 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
+    this->adrs = new Adrs;
+    this->adrs->materia = NULL;
+    this->adrs->next = NULL; 
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
-        this->adrs[i] = NULL;
     }
 }
 
@@ -41,10 +43,16 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &ms){
 MateriaSource::~MateriaSource(){
     for (int i = 0; i < 4; i++)
     {
-        if (this->adrs[i])
-            delete this->adrs[i];
         if (this->slots[i])
                 delete this->slots[i];
+    }
+    Adrs *tmp;
+    while (this->adrs)
+    {
+        tmp = this->adrs->next;
+        delete this->adrs->materia;
+        delete this->adrs;
+        this->adrs = tmp;
     }
     
 }
@@ -63,9 +71,7 @@ void MateriaSource::learnMateria(AMateria * am){
     {
         if (!this->slots[i])
         {
-            if (this->adrs[i])
-                delete this->adrs[i];
-            this->adrs[i] = this->slots[i];
+            // push(&this->adrs, am);
             this->slots[i] = am;
             return;
         }
