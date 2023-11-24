@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 18:41:16 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 19:08:57 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void push(Adrs** head, AMateria *adrs){
     newNode->next = NULL;
     if (*head == NULL)
     {
+    printf("%p\n", newNode);
         (*head) = newNode;
         return ;
     }
