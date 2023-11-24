@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:03:26 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/21 19:03:00 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 13:12:16 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cure::Cure(){
     this->type = "cure";
 }
 
-Cure::Cure(const Cure &cure) {
+Cure::Cure(const Cure &cure) : AMateria(cure.type){
     this->type = cure.type;
 }
 

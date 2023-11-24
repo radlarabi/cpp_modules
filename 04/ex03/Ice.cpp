@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:42:03 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 13:13:47 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 13:12:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Ice::Ice(){
     this->type = "ice";
 }
 
-Ice::Ice(const Ice & ice){
+Ice::Ice(const Ice & ice) : AMateria(ice.type){
     this->type = ice.type;
 }
 

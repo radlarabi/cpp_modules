@@ -7,7 +7,7 @@ SRCS = 	main.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
-NAME = Brain
+NAME = Materia
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
