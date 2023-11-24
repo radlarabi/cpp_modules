@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:34:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 14:30:04 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 18:37:30 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 
-int main(){
+int main1(){
     IMateriaSource* src = new MateriaSource();
     
     src->learnMateria(new Ice());
@@ -26,6 +26,10 @@ int main(){
     ICharacter* me = new Character("me");
     AMateria* tmp;
     
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
@@ -42,3 +46,11 @@ int main(){
  
     return 0;
 }
+
+int main()
+{
+    main1();
+    system("leaks Materia");
+    return 0;
+}
+

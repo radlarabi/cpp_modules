@@ -6,16 +6,14 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 14:38:09 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 18:41:16 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(){
-    this->adrs = new Adrs;
-    this->adrs->materia = NULL;
-    this->adrs->next = NULL; 
+    this->adrs = NULL;
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
@@ -23,9 +21,7 @@ Character::Character(){
 }
 
 Character::Character(std::string _name) : name(_name){
-    this->adrs = new Adrs;
-    this->adrs->materia = NULL;
-    this->adrs->next = NULL; 
+    this->adrs = NULL;
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
@@ -65,7 +61,7 @@ Character::~Character(){
     while (this->adrs)
     {
         tmp = this->adrs->next;
-        delete this->adrs->materia;
+        // delete tmp->materia;
         delete this->adrs;
         this->adrs = tmp;
     }
@@ -83,6 +79,7 @@ void Character::equip(AMateria* m)
     {
         if (!this->slots[i])
         {
+            push(&this->adrs, m);
             this->slots[i] = m;
             return ;
         }
@@ -110,13 +107,20 @@ void push(Adrs** head, AMateria *adrs){
     Adrs* newNode = new Adrs;
     newNode->materia = adrs; 
     newNode->next = NULL;
-    if (!head)
+    if (*head == NULL)
     {
         (*head) = newNode;
         return ;
     }
     Adrs *last = *head;
-    while(!(last->next))
+    while(!last)
+    {
+        if (last->materia == adrs)
+        {
+            delete newNode;
+            return ;
+        }
         last = last->next;
+    }
     last->next = newNode; 
 }

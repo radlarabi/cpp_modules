@@ -6,7 +6,7 @@ SRCS = 	main.cpp \
 		MateriaSource.cpp \
 
 
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 NAME = Materia
 O_SRCS = $(SRCS:%.cpp=%.o)
 
