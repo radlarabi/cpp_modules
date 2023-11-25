@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:58:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 16:32:07 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 21:43:15 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class WrongAnimal
 {
     protected:
-        std::string	_type;
+        std::string	type;
     public:
         WrongAnimal();
         WrongAnimal(std::string type);

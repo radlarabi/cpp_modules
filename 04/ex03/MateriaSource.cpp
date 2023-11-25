@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:28:24 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 14:50:40 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 21:19:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ MateriaSource::MateriaSource(){
 MateriaSource::MateriaSource(const MateriaSource &ms){
     for(int i = 0; i < 4 ; i++)
     {
-        if (src.slots[i])
+        if (ms.slots[i])
             this->slots[i] = ms.slots[i]->clone();
     }
 }
@@ -33,7 +33,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &ms){
     {
         for (int i = 0; i < 4; i++)
         {
-            if (src.slots[i])
+            if (ms.slots[i])
                 this->slots[i] = this->createMateria(this->slots[i]->getType());
         }
     }

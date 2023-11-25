@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:58:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 00:50:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 21:38:58 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,4 @@ public:
     void push(AMateria &adrs); 
 };
 
-// void push(Adrs* head, AMateria &adrs);
 #endif
