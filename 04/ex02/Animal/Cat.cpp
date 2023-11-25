@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:08 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 16:45:07 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 15:58:45 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 Cat::Cat()
 {
+    this->_brain = new Brain();
     this->_type = "Cat";
-    this->_brain = new Brain("cat");
     std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &src) : A_Animal(src), _brain(new Brain(src._type))
+Cat::Cat(Cat const &src) : A_Animal(src)
 {
+    this->_brain = new Brain();
+    *this->_brain = *src._brain;
+    this->_type = "Cat";
     std::cout << "Cat copy constructor called" << std::endl;
+    // std::cout << "adrs : " << this->_brain << std::endl;
+    // std::cout << "adrs : " << src._brain << std::endl;
 }
 
 Cat::~Cat()
@@ -32,12 +37,9 @@ Cat::~Cat()
 
 Cat& Cat::operator = (Cat const &src) {
     std::cout << "Cat assignation operator called" << std::endl;
-    if (this != &src)
-    {
-        this->_type = src._type;
-        delete this->_brain;
-        this->_brain = new Brain(src._type);
-    }
+    this->_brain = new Brain();
+    *this->_brain = *src._brain;
+    this->_type = "Cat";
     return (*this);
 }
 
