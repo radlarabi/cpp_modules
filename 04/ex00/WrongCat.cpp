@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:55:09 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/25 12:02:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:06:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat()
 {
-    this->_type = "WrongCat";
+    this->type = "WrongCat";
     std::cout << "WrongCat default constructor called" << std::endl;
 }
 

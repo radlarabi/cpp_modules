@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:05 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/18 23:53:41 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:05:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 protected:
-    std::string	_type;
+    std::string	type;
 public:
     Animal();
     virtual ~Animal();

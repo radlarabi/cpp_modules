@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:08 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 14:52:47 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:05:29 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat()
 {
-    this->_type = "Cat";
+    this->type = "Cat";
     std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -31,7 +31,7 @@ Cat::~Cat()
 Cat& Cat::operator = (Cat const &src) {
     std::cout << "Cat assignation operator called" << std::endl;
     if (this != &src)
-        this->_type = src._type;
+        this->type = src.type;
     return (*this);
 }
 

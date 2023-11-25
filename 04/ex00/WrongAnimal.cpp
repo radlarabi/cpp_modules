@@ -6,17 +6,17 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:58:32 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/10/25 12:00:03 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:05:52 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
+WrongAnimal::WrongAnimal() : type("WrongAnimal") {
     std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type) : _type(type) {
+WrongAnimal::WrongAnimal(std::string type) : type(type) {
     std::cout << "WrongAnimal " << type << " constructor called" << std::endl;
 }
 
@@ -28,12 +28,12 @@ WrongAnimal::WrongAnimal(WrongAnimal const &src) {
 WrongAnimal& WrongAnimal::operator = (WrongAnimal const &src) {
     std::cout << "WrongAnimal assignation operator called" << std::endl;
     if (this != &src)
-        this->_type = src._type;
+        this->type = src.type;
     return (*this);
 }
 
 std::string WrongAnimal::getType() const {
-    return (this->_type);
+    return (this->type);
 }
 
 WrongAnimal::~WrongAnimal() {
