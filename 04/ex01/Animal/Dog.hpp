@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:15 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/19 01:15:56 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:24:06 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal
         Dog();
         ~Dog();
         Dog(Dog const &src);
-        Dog operator=(Dog const &src);
+        Dog &operator=(Dog const &src);
         void makeSound() const;
 };
 
