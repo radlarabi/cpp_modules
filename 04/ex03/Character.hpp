@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:58:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 13:51:01 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 00:50:08 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ public:
     std::string const & getName() const;
     void equip(AMateria* m);
     void unequip(int idx);
-    void use(int idx, ICharacter& target);  
+    void use(int idx, ICharacter& target); 
+    void push(AMateria &adrs); 
 };
 
-void push(Adrs** head, AMateria *adrs);
+// void push(Adrs* head, AMateria &adrs);
 #endif

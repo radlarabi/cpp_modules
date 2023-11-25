@@ -6,16 +6,14 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:28:24 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 18:51:05 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 01:09:38 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
-    this->adrs = new Adrs;
-    this->adrs->materia = NULL;
-    this->adrs->next = NULL; 
+    this->adrs = NULL;
     for(int i = 0; i < 4 ; i++)
     {
         this->slots[i] = NULL;
@@ -46,15 +44,39 @@ MateriaSource::~MateriaSource(){
         if (this->slots[i])
             delete this->slots[i];
     }
-    Adrs *tmp;
-    while (this->adrs)
+    Adrs *cur = this->adrs;
+    
+    while (cur)
     {
-        tmp = this->adrs->next;
-        // delete this->adrs->materia;
-        delete this->adrs;
-        this->adrs = tmp;
+        Adrs *next = cur->next;
+        delete cur->materia;
+        delete cur;
+        cur = next;
     }
     
+}
+
+static bool checkExist(Adrs *adrs, AMateria &am)
+{
+    while (adrs)
+    {
+        if (adrs->materia == &am)
+            return true;
+        adrs = adrs->next;
+    }
+    return false;
+}
+
+void MateriaSource::push(AMateria &adrs){
+    Adrs* newNode = new Adrs;
+    newNode->materia = &adrs; 
+    if(checkExist(this->adrs, adrs))
+    {
+        delete newNode;
+        return ;
+    }
+    newNode->next = this->adrs;
+    this->adrs = newNode;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type){
@@ -71,10 +93,9 @@ void MateriaSource::learnMateria(AMateria * am){
     {
         if (!this->slots[i])
         {
-            push(&this->adrs, am);
             this->slots[i] = am;
-            printf("---> %p\n", am);
             return;
         }
     }
+    push(*am);
 }

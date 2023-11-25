@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 19:08:57 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 01:10:00 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,14 @@ Character::~Character(){
         if (this->slots[i])
             delete this->slots[i];
     }
-    Adrs *tmp;
-    while (this->adrs)
+    Adrs *cur = this->adrs;
+    
+    while (cur)
     {
-        tmp = this->adrs->next;
-        // delete tmp->materia;
-        delete this->adrs;
-        this->adrs = tmp;
+        Adrs *next = cur->next;
+        delete cur->materia;
+        delete cur;
+        cur = next;
     }
     
 }
@@ -79,19 +80,18 @@ void Character::equip(AMateria* m)
     {
         if (!this->slots[i])
         {
-            push(&this->adrs, m);
             this->slots[i] = m;
             return ;
         }
     }
-    push(&this->adrs, m);
+    push(*m);
     std::cout << "The slots is full" << std::endl;
 }
 
 void Character::unequip(int idx){
     if (idx < 4 && idx >= 0)
     {
-        push(&this->adrs, this->slots[idx]);
+        push(*(this->slots[idx]));
         this->slots[idx] = NULL;
         return ;
     }
@@ -102,26 +102,24 @@ void Character::use(int idx, ICharacter& target){
     if (idx >= 0 && idx < 4 && this->slots[idx])
         this->slots[idx]->use(target);
 }
-
-void push(Adrs** head, AMateria *adrs){
-    Adrs* newNode = new Adrs;
-    newNode->materia = adrs; 
-    newNode->next = NULL;
-    if (*head == NULL)
+static bool checkExist(Adrs *adrs, AMateria &am)
+{
+    while (adrs)
     {
-    printf("%p\n", newNode);
-        (*head) = newNode;
+        if (adrs->materia == &am)
+            return true;
+        adrs = adrs->next;
+    }
+    return false;
+}
+void Character::push(AMateria &adrs){
+    Adrs* newNode = new Adrs;
+    newNode->materia = &adrs; 
+    if(checkExist(this->adrs, adrs))
+    {
+        delete newNode;
         return ;
     }
-    Adrs *last = *head;
-    while(!last)
-    {
-        if (last->materia == adrs)
-        {
-            delete newNode;
-            return ;
-        }
-        last = last->next;
-    }
-    last->next = newNode; 
+    newNode->next = this->adrs;
+    this->adrs = newNode;
 }

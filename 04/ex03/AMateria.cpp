@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 16:06:41 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/22 12:54:54 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/24 23:39:56 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ AMateria::AMateria(AMateria &amateria): type(amateria.type)
 
 AMateria &AMateria::operator=(AMateria &amateria)
 {
+    // std::cout << "^^^^^^^^^^^^^&&&&&&^^^^^^^^^^^^" << std::endl;
     if (this != &amateria)
         this->type = amateria.type;
     return *this;

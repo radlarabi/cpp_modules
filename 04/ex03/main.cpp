@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:34:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 18:46:31 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 01:10:34 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ int main1(){
     src->learnMateria(new Cure());
     
     ICharacter* me = new Character("me");
-    // AMateria* tmp;
+    AMateria* tmp;
     
-    // tmp = src->createMateria("ice");
-    // me->equip(tmp);
-    // tmp = src->createMateria("cure");
-    // me->equip(tmp);
-    // tmp = src->createMateria("ice");
-    // me->equip(tmp);
-    // tmp = src->createMateria("cure");
-    // me->equip(tmp);
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
     
     ICharacter* bob = new Character("bob");
     

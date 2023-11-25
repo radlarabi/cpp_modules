@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:06:37 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/24 13:56:39 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 00:48:34 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     ~MateriaSource();
     void learnMateria(AMateria * am);
     AMateria *createMateria(std::string const &type);
+    void push(AMateria &adrs);
 };
 
-void push(Adrs** head, AMateria *adrs);
 #endif
