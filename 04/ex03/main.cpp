@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:34:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 01:10:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 01:27:58 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int main1(){
     
     tmp = src->createMateria("ice");
     me->equip(tmp);
-    tmp = src->createMateria("cure");
+    // tmp = src->createMateria("cure");
     me->equip(tmp);
-    tmp = src->createMateria("ice");
+    // tmp = src->createMateria("ice");
     me->equip(tmp);
     
     ICharacter* bob = new Character("bob");

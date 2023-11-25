@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 01:10:00 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 01:29:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void Character::equip(AMateria* m)
     int i = 0;
     for(i = 0; i < 4 ; i++)
     {
+        if (this->slots[i] == m)
+            return ;
         if (!this->slots[i])
         {
             this->slots[i] = m;
