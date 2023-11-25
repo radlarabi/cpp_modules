@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 01:29:02 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/25 14:50:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ Character::Character(Character const &src) : name(src.name) {
     {
         for (int i = 0; i < 4; i++)
         {
-            this->slots[i] = src.slots[i]->clone();
-        }
-        
+            if (src.slots[i])
+                this->slots[i] = src.slots[i]->clone();
+        }   
     }
 }
 
@@ -45,7 +45,8 @@ Character &Character::operator = (Character const &src){
         this->name = src.name;
         for (int i = 0; i < 4; i++)
         {
-            this->slots[i] = src.slots[i]->clone();
+            if (src.slots[i])
+                this->slots[i] = src.slots[i]->clone();
         }
     }
     return *this;
@@ -104,6 +105,7 @@ void Character::use(int idx, ICharacter& target){
     if (idx >= 0 && idx < 4 && this->slots[idx])
         this->slots[idx]->use(target);
 }
+
 static bool checkExist(Adrs *adrs, AMateria &am)
 {
     while (adrs)
@@ -114,6 +116,7 @@ static bool checkExist(Adrs *adrs, AMateria &am)
     }
     return false;
 }
+
 void Character::push(AMateria &adrs){
     Adrs* newNode = new Adrs;
     newNode->materia = &adrs; 
