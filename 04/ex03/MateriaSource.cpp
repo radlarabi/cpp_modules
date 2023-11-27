@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:28:24 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 21:19:02 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/27 20:56:26 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &ms){
         for (int i = 0; i < 4; i++)
         {
             if (ms.slots[i])
+            {
+                delete this->slots[i];
                 this->slots[i] = this->createMateria(this->slots[i]->getType());
+            }
         }
     }
     return *this;
