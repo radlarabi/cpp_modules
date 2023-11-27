@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:13 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 21:43:03 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/27 12:30:01 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Dog Dog::operator = (Dog const &src)
     if (this != &src)
     {   
         this->type = "Dog";
+        delete this->_brain;
         this->_brain = new Brain();
         *this->_brain = *src._brain;
     }

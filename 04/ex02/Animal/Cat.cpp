@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:08 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 21:42:52 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/27 12:30:08 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Cat& Cat::operator = (Cat const &src) {
     if (this != &src)
     {
         this->_brain = new Brain();
+        delete this->_brain;
         *this->_brain = *src._brain;
         this->type = src.type;
     }
