@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:34:19 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/25 21:38:05 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/28 19:30:12 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int main(){
     
     me->use(0, *bob);
     me->use(1, *bob);
- 
+
     delete bob;
     delete me;
     delete src;
- 
+
     return 0;
 }

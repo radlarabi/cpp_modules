@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/27 21:00:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/28 17:08:53 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ Character::Character(Character const &src) : name(src.name) {
 }
 
 Character &Character::operator = (Character const &src){
+    std::cout << "****************" << std::endl;
     if (this != &src)
     {
         this->name = src.name;
