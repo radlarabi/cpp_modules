@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:45:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/28 17:08:53 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/29 13:26:07 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,26 @@ Character::Character(std::string _name) : name(_name){
 }
 
 Character::Character(Character const &src) : name(src.name) {
-    if (this != &src)
+    this->adrs = NULL;
+    for (int i = 0; i < 4; i++)
     {
-        for (int i = 0; i < 4; i++)
-        {
-            if (src.slots[i])
-                this->slots[i] = src.slots[i]->clone();
-        }   
+        if (src.slots[i])
+            this->slots[i] = src.slots[i]->clone();
+        else
+            this->slots[i] = NULL;
     }
 }
 
 Character &Character::operator = (Character const &src){
-    std::cout << "****************" << std::endl;
     if (this != &src)
     {
         this->name = src.name;
         for (int i = 0; i < 4; i++)
         {
+            if (this->slots[i])
+                delete this->slots[i];
             if (src.slots[i])
-            {
-                if (this->slots[i])
-                    delete this->slots[i];
                 this->slots[i] = src.slots[i]->clone();
-            }
         }
     }
     return *this;
