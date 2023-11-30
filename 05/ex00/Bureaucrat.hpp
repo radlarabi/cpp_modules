@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 18:30:29 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/11/30 18:41:34 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ public:
     ~Bureaucrat();
     const std::string getName() const;
     int getGrade() const;
+    void increment();
+    void decrement();
 };
 
-std::ostream &operator << (std::ostream &out, Bureaucrat &other);
+std::ostream &operator << (std::ostream &out, Bureaucrat const &other);
 
 #endif
