@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 20:18:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/01 13:44:59 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,19 @@ void Bureaucrat::increment(){
 
 void Bureaucrat::decrement(){
     this->grade++;
+}
+void Bureaucrat::signForm(Form *f)
+{
+    try
+    {
+        f->beSigned(this);
+        std::cout << this->getName() << " signed " << f->getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << this->getName() << " couldn’t sign " << f->getName() << " because  " << e.what() << std::endl;
+    }
+    
 }
 
 std::ostream &operator << (std::ostream &out, Bureaucrat const &br)

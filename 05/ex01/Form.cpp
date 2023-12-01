@@ -6,26 +6,26 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 22:49:29 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/01 13:09:23 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-Form::Form()
+Form::Form(): sign(false), gradeSign(150), gradeExecute(150)
 {
 }
 
 Form::Form(const std::string _name, const int _gradeSign, const int _gradeExecute)
-: name(_name), gradeSign(_gradeSign), gradeExecute(__gradeExecute), sign(false)
+: name(_name), sign(false), gradeSign(_gradeSign), gradeExecute(_gradeExecute) 
 {
 }
 
-Form::Form(Form const &other)
+Form::Form(Form const &other): gradeSign(other.gradeSign), gradeExecute(other.gradeExecute)
 {
-    this->name = other.name;
+    // this->name = other.name;
     this->sign = other.sign;
-    this->name = other.gradeSign;
-    this->name = other.gradeExecute;
+    // this->gradeSign = other.gradeSign;
+    // this->gradeExecute = other.gradeExecute;
 }
 
 Form &Form::operator = (Form const &other)
@@ -55,25 +55,26 @@ bool Form::getSigned() const{
     return this->sign;
 }
 
-const int Form::getGradeSign() const{
+int Form::getGradeSign() const{
     return this->gradeSign;
 }
 
-const int Form::getGradeExecute() const{
+int Form::getGradeExecute() const{
     return this->gradeExecute;
 }
 
-const char * Form::GradeTooHighException::what() throw()
+const char * Form::GradeTooHighException::what() const throw()
 {
     return "The Grade is too high !!";
 }
 
-const char * Form::GradeTooLowException::what() throw()
+const char * Form::GradeTooLowException::what() const throw()
 {
     return "The Grade is too low !!";
 }
 
 std::ostream &operator << (std::ostream &out, Form const &br)
 {
+    out << "form name is " << br.getName() << std::endl;
     return out;
 }

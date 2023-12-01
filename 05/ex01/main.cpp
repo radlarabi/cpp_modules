@@ -6,23 +6,19 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:30 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 18:45:17 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/01 13:47:59 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
         Bureaucrat a("abc", 150);
-        Bureaucrat b("def", 60);
-        Bureaucrat c("ijk", 1);
-        
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
-        std::cout << c << std::endl;   
+        Form f("hassan", 100, 20);
+        a.signForm(&f);
     }
     catch(const std::exception& e)
     {

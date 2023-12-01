@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 18:41:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/01 13:46:51 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <string>
+#include "Form.hpp"
+class Form;
 class Bureaucrat
 {
 private:
@@ -37,6 +39,7 @@ public:
     int getGrade() const;
     void increment();
     void decrement();
+    void signForm(Form *f);
 };
 
 std::ostream &operator << (std::ostream &out, Bureaucrat const &other);

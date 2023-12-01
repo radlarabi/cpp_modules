@@ -1,5 +1,6 @@
 SRCS = 	main.cpp \
 		Bureaucrat.cpp \
+		Form.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
