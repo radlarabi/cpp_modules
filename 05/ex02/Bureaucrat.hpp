@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:10:28 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:57:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include "AForm.hpp"
+
 class AForm;
 class Bureaucrat
 {
@@ -40,6 +41,7 @@ public:
     void increment();
     void decrement();
     void signForm(AForm &f);
+    void executeForm(AForm const & form);
 };
 
 std::ostream &operator << (std::ostream &out, Bureaucrat const &other);

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:09:03 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:58:01 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void Bureaucrat::increment(){
 void Bureaucrat::decrement(){
     this->grade++;
 }
+
 void Bureaucrat::signForm(AForm &f)
 {
     try
@@ -74,6 +75,19 @@ void Bureaucrat::signForm(AForm &f)
     catch(const std::exception& e)
     {
         std::cerr << this->getName() << " couldn’t sign " << f.getName() << " because  " << e.what() << std::endl;
+    }
+    
+}
+
+void Bureaucrat::executeForm(AForm const & form){
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " execute " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << this->getName() << " cannot execute " << form.getName() << std::endl;
     }
     
 }
