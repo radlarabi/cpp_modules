@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:21 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/01 13:47:35 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 15:06:52 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+
 class Bureaucrat;
-class Form
+class AForm
 {
 private:
     const std::string name;
@@ -32,18 +33,19 @@ public:
         public:
             const char * what() const throw();
     };
-    Form();
-    Form(Form const &other);
-    Form(const std::string _name, const int _gradeSign, const int _gradeExecute);
-    Form &operator = (Form const &other);
-    ~Form();
+    AForm();
+    AForm(AForm const &other);
+    AForm(const std::string _name, const int _gradeSign, const int _gradeExecute);
+    AForm &operator = (AForm const &other);
+    ~AForm();
     void beSigned(Bureaucrat *b);
     const std::string getName() const;
     bool getSigned() const;
     int getGradeSign() const;
     int getGradeExecute() const;
+    virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream &operator << (std::ostream &out, Form const &br);
+std::ostream &operator << (std::ostream &out, AForm const &br);
 
 #endif

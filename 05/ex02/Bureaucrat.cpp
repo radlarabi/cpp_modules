@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/01 13:44:59 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 14:36:02 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Bureaucrat::increment(){
 void Bureaucrat::decrement(){
     this->grade++;
 }
-void Bureaucrat::signForm(Form *f)
+void Bureaucrat::signForm(AForm *f)
 {
     try
     {
