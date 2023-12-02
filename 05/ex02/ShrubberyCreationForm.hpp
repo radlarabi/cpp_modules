@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:38:42 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 16:50:32 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 17:33:45 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ public:
     void execute(Bureaucrat const & executor) const;
 };
 
-void drawTree(std::ofstream output);
 #endif

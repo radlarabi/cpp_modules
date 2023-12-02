@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 14:36:38 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:09:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ AForm::~AForm()
 {
 }
 
-void AForm::beSigned(Bureaucrat * b)
+void AForm::beSigned(Bureaucrat & b)
 {
-    if (b->getGrade() > this->getGradeSign())
+    if (b.getGrade() > this->getGradeSign())
         throw GradeTooLowException();
     else
         this->sign = true;

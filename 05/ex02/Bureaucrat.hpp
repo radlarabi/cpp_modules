@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:33 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 16:45:08 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:10:28 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
     int getGrade() const;
     void increment();
     void decrement();
-    void signForm(AForm *f);
+    void signForm(AForm &f);
 };
 
 std::ostream &operator << (std::ostream &out, Bureaucrat const &other);

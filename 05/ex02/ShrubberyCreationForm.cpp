@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:41:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 16:48:32 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:14:15 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,36 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string _name): AForm(_na
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other): AForm(other.getName(), 145, 137), name(other.name){
 }
 
-ShrubberyCreationForm ShrubberyCreationForm::operator = (ShrubberyCreationForm const &other): AForm(other.getName(), 145, 137){
+ShrubberyCreationForm &ShrubberyCreationForm::operator = (ShrubberyCreationForm const &other){
+    (void)other;
     return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    if (this->getGradeExecute() < executor.getGrade())
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    if (this->getGradeExecute() > executor.getGrade() && this->getSigned())
     {
-        std::ofstream output(this->getName() + "_shrubbery");
+        std::string fileName = this->getName() + "_shrubbery";
+        std::ofstream output(fileName.c_str());
         if (output.is_open())
-            drawTree(output);
+        {
+            output << "         ccee88oo\n";
+            output << "  C8O8O8Q8PoOb o8oo\n";
+            output << " dOB69QO8PdUOpugoO9bD\n";
+            output << "CgggbU8OU qOp qOdoUOdcb\n";
+            output << "    6OuU  /p u gcoUodpP\n";
+            output << "      \\\\//  /douUP\n";
+            output << "        \\\\////\n";
+            output << "         |||//\n";
+            output << "         |||\\\\\n";
+            output << "         |||||\n";
+            output << "   .....\\/\\/||||\\....\n";
+        }
         output.close();
     }
     else
         throw GradeTooLowException();
-}
-
-void drawTree(std::ofstream output){
-    output << "         ccee88oo\n";
-    output << "  C8O8O8Q8PoOb o8oo\n";
-    output << " dOB69QO8PdUOpugoO9bD\n";
-    output << "CgggbU8OU qOp qOdoUOdcb\n";
-    output << "    6OuU  /p u gcoUodpP\n";
-    output << "      \\\\//  /douUP\n";
-    output << "        \\\\////\n";
-    output << "         |||//\n";
-    output << "         |||\\\\\n";
-    output << "         |||||\n";
-    output << "   .....\\/\\/||||\\....\n";
 }
