@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:41:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:14:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:49:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
             output << "         |||||\n";
             output << "   .....\\/\\/||||\\....\n";
         }
+        else
+            throw std::runtime_error("cannot create the file " + fileName);
         output.close();
     }
     else
