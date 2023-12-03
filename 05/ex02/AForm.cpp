@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:09:42 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:21:36 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ const std::string AForm::getName() const{
 
 bool AForm::getSigned() const{
     return this->sign;
+}
+
+void AForm::setSigned(bool _sign){
+    this->sign = _sign;
 }
 
 int AForm::getGradeSign() const{

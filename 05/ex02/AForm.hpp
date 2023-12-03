@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:21 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:09:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:22:00 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ public:
     void beSigned(Bureaucrat &b);
     const std::string getName() const;
     bool getSigned() const;
+    void setSigned(bool _sign);
     int getGradeSign() const;
     int getGradeExecute() const;
     virtual void execute(Bureaucrat const & executor) const = 0;

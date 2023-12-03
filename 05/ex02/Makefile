@@ -2,6 +2,8 @@ SRCS = 	main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror

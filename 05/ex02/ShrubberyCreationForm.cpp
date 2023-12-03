@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:41:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:49:39 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:48:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator = (ShrubberyCreationForm const &other){
-    (void)other;
+    this->setSigned(other.getSigned());
     return (*this);
 }
 
@@ -51,6 +51,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         }
         else
             throw std::runtime_error("cannot create the file " + fileName);
+        std::cout << "the file " << fileName << " has been created" << std::endl;
         output.close();
     }
     else

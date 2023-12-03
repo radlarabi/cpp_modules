@@ -6,24 +6,32 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:30 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:59:36 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:46:31 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
     try
     {
-        // Bureaucrat a("abc", 10);
-        // AForm *s = new ShrubberyCreationForm("home");
-        // a.signForm(s);
-        // s->execute(a);
-        Bureaucrat bureaucrat("abc", 15);
-        AForm *A = new ShrubberyCreationForm("home");
-        bureaucrat.signForm(*A);
-        bureaucrat.executeForm(*A);
+        Bureaucrat bur("abc", 4);
+        
+        AForm *S = new ShrubberyCreationForm("home_1");
+        AForm *R = new RobotomyRequestForm("home_2");
+        AForm *P = new PresidentialPardonForm("home_3");
+        
+        bur.signForm(*S);
+        bur.signForm(*R);
+        bur.signForm(*P);
+        
+        bur.executeForm(*S);
+        bur.executeForm(*R);
+        bur.executeForm(*P);
+        
     }
     catch(const std::exception& e)
     {
