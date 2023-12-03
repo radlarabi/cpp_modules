@@ -4,6 +4,7 @@ SRCS = 	main.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
+		Intern.cpp \
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
