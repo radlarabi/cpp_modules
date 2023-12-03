@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:30 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 19:07:53 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 19:09:21 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main()
             bur.signForm(*rrf);
             bur.executeForm(*rrf);
         }
+        delete rrf;
     }
     catch(const std::exception& e)
     {

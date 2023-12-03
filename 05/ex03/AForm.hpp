@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:21 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 16:22:00 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/03 19:09:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
     AForm(AForm const &other);
     AForm(const std::string _name, const int _gradeSign, const int _gradeExecute);
     AForm &operator = (AForm const &other);
-    ~AForm();
+    virtual ~AForm();
     void beSigned(Bureaucrat &b);
     const std::string getName() const;
     bool getSigned() const;
