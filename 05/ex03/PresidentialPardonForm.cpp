@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:26:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 16:43:44 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:09:37 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    if (this->getGradeExecute() > executor.getGrade() && this->getSigned())
+    if (this->getGradeExecute() >= executor.getGrade() && this->getSigned())
     {
         std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;             
     }

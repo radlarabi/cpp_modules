@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:41:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 16:48:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:09:07 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    if (this->getGradeExecute() > executor.getGrade() && this->getSigned())
+    if (this->getGradeExecute() >= executor.getGrade() && this->getSigned())
     {
         std::string fileName = this->getName() + "_shrubbery";
         std::ofstream output(fileName.c_str());

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:11:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 16:22:38 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:09:41 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (this->getGradeExecute() > executor.getGrade() && this->getSigned())
+    if (this->getGradeExecute() >= executor.getGrade() && this->getSigned())
     {
         time_t current_time;
 
