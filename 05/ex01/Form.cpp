@@ -6,12 +6,12 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/01 15:03:34 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:04:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-Form::Form(): sign(false), gradeSign(150), gradeExecute(150)
+Form::Form(): name("unkown_name"), sign(false), gradeSign(150), gradeExecute(150)
 {
 }
 

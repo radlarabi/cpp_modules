@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/02 18:58:01 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:07:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,17 @@ int Bureaucrat::getGrade() const {
 } 
 
 void Bureaucrat::increment(){
-    this->grade--;
+    if (this->grade == 1)
+        throw GradeTooLowException();
+    else
+        this->grade--;
 }
 
 void Bureaucrat::decrement(){
-    this->grade++;
+    if(this->grade == 150)
+        throw GradeTooHighException();
+    else
+        this->grade++;
 }
 
 void Bureaucrat::signForm(AForm &f)

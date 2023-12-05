@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:35 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/11/30 18:43:27 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:06:56 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,22 @@ const std::string Bureaucrat::getName() const{
 
 int Bureaucrat::getGrade() const {
     return this->grade;
-} 
+}
+ 
 void Bureaucrat::increment(){
-    this->grade--;
+    if (this->grade == 1)
+        throw GradeTooLowException();
+    else
+        this->grade--;
 }
+
 void Bureaucrat::decrement(){
-    this->grade++;
+    if(this->grade == 150)
+        throw GradeTooHighException();
+    else
+        this->grade++;
 }
+
 std::ostream &operator << (std::ostream &out, Bureaucrat const &br)
 {
     out << br.getName() << ", bureaucrat grade " << br.getGrade();
