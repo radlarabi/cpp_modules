@@ -6,13 +6,13 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:11:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/05 17:09:05 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:42:39 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(){
+RobotomyRequestForm::RobotomyRequestForm(): AForm(){
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string _name): AForm(_name, 72, 45), name(_name){

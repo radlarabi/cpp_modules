@@ -6,13 +6,13 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:41:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/05 17:09:07 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:42:42 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(){
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm(){
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string _name): AForm(_name, 145, 137), name(_name){

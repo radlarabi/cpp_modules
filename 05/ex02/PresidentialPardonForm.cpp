@@ -6,13 +6,13 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:26:45 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/05 17:09:02 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:42:31 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(){
+PresidentialPardonForm::PresidentialPardonForm(): AForm(){
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string _name): AForm(_name, 25, 5), name(_name){
