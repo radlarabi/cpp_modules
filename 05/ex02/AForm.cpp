@@ -6,13 +6,13 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 16:21:36 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:38:14 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(): sign(false), gradeSign(150), gradeExecute(150)
+AForm::AForm(): name("unknown_name"), sign(false), gradeSign(150), gradeExecute(150)
 {
 }
 
@@ -21,9 +21,8 @@ AForm::AForm(const std::string _name, const int _gradeSign, const int _gradeExec
 {
 }
 
-AForm::AForm(AForm const &other): gradeSign(other.gradeSign), gradeExecute(other.gradeExecute)
+AForm::AForm(AForm const &other): name(other.name), sign(other.sign), gradeSign(other.gradeSign), gradeExecute(other.gradeExecute)
 {
-    this->sign = other.sign;
 }
 
 AForm &AForm::operator = (AForm const &other)
