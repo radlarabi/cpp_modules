@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:32:07 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/03 19:06:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:10:37 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ AForm *Intern::makeForm(std::string name, std::string target){
     switch (i)
     {
         case 0 :
-            std::cout << "Intern creates " << target << std::endl;
+            std::cout << "Intern creates " << name << std::endl;
             return new ShrubberyCreationForm(target); 
             break;
         case 1 :
-            std::cout << "Intern creates " << target << std::endl;
+            std::cout << "Intern creates " << name << std::endl;
             return new RobotomyRequestForm(target); 
             break;
         case 2 :
-            std::cout << "Intern creates " << target << std::endl;
+            std::cout << "Intern creates " << name << std::endl;
             return new PresidentialPardonForm(target); 
             break;
         default:
-            std::cout << "Intern didn't fined " << target << std::endl;
+            std::cout << "Intern didn't find " << name << std::endl;
             return NULL;
             break;
     }
