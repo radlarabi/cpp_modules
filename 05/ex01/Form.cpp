@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:55:49 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/05 17:04:42 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:34:15 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ Form::Form(): name("unkown_name"), sign(false), gradeSign(150), gradeExecute(150
 Form::Form(const std::string _name, const int _gradeSign, const int _gradeExecute)
 : name(_name), sign(false), gradeSign(_gradeSign), gradeExecute(_gradeExecute) 
 {
+    if (_gradeSign < 1 || _gradeExecute < 1)
+        throw GradeTooHighException();
+    else if (_gradeSign > 150 || _gradeExecute > 150)
+        throw GradeTooLowException();
 }
 
 Form::Form(Form const &other): gradeSign(other.gradeSign), gradeExecute(other.gradeExecute)
