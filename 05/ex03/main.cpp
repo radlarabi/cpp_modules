@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:59:30 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/06 15:08:26 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/07 16:30:09 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
     {
         Bureaucrat bur("abc", 4);
         Intern someRandomIntern;
-        AForm *rrf = someRandomIntern.makeForm("robotomyx request", "Bender");
+        AForm *rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         if (rrf)
         {
             bur.signForm(*rrf);
