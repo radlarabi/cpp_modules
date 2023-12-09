@@ -7,12 +7,12 @@ NAME = Converter
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
-CC = c++
+CPP = c++
 
 all: $(NAME)
 
 $(NAME): $(O_SRCS)
-	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	$(RM) $(O_SRCS)
