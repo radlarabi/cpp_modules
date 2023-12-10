@@ -1,5 +1,5 @@
 SRCS = 	main.cpp \
-		Serializer.cpp \ 
+		Serializer.cpp 
 
 
 CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror

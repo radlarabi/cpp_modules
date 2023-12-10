@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 22:10:43 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/09 22:18:19 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/10 14:23:16 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 int main(){
     Data *d = new Data;
-	uintptr_t raw;
+	uintptr_t raw = 0;
 
-	// initializing data members
 	d->a = 42;
 	d->b = 22.5;
 	d->c = 'a';
 	d->d = true;
 
-	std::cout << "address before serializing : ";
-	std::cout << d << std::endl;
+	std::cout << "d address before serializing : " << d << std::endl;
+	std::cout << "raw address before serializing : " << raw << std::endl;
 
 	raw = Serializer::serialize(d);
 	d = Serializer::deserialize(raw);
 
-	std::cout << "address after serializing  : ";
-	std::cout << d << std::endl; // must be equal to the original Data address
-
-	// deleting Data object to avoid memory leak
+	std::cout << "d address after serializing  : " << d << std::endl;
+	std::cout << "raw address after serializing  : " << raw << std::endl;
 	delete d;
     return 0;
 }
