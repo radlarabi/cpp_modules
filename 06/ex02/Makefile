@@ -2,7 +2,7 @@ SRCS = 	main.cpp \
 		Base.cpp 
 
 
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 NAME = Converter
 O_SRCS = $(SRCS:%.cpp=%.o)
 
