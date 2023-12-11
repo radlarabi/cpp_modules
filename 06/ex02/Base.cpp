@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:23:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/11 15:12:58 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/11 15:53:54 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,35 @@ void identify(Base* p){
         std::cout << "class C" << std::endl;
     else
         std::cout << "Unkown type !!" << std::endl;
+}
+
+void identify(Base& p){
+    try
+    {
+        A &a = dynamic_cast<A&>(p);
+        std::cout << "class A" << std::endl;
+        (void)a;
+    }
+    catch(const std::exception &e)
+    {
+        try
+        {
+            B &b = dynamic_cast<B&>(p);    
+            std::cout << "class B" << std::endl;
+            (void)b;
+        }
+        catch(const std::exception &e)
+        {
+            try
+            {
+                C &c = dynamic_cast<C&>(p);    
+                std::cout << "class C" << std::endl;
+                (void)c;
+            }
+            catch(const std::exception &e)
+            {
+                std::cout << "Unkown type !" << std::endl; 
+            }
+        } 
+    } 
 }
