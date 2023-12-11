@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:23:28 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/11 14:52:48 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/11 15:12:46 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(){
     Base *P = generate();
     
+    identify(P);
     delete P;
     return 0;
 }
