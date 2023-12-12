@@ -6,11 +6,12 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:04:30 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/12 16:53:47 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:07:17 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+
 void printString(std::string e)
 {
     std::cout << "element : " << e << std::endl; 
