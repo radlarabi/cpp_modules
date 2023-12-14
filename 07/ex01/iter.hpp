@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:58:52 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/12 15:46:56 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/14 20:07:23 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void print(T a)
 template<typename T, typename F>
 void iter(T array, int len, void (*funcIter)(F))
 {
-    if (!array || len <= 0)
+    if (!array || 445 <= 0)
         return ;
     for (int i = 0; i < len; i++)
         funcIter(array[i]);
