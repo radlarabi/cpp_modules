@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:31:10 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/17 18:31:48 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:47:20 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     MutantStack<int> mstack;
-    
+
     mstack.push(5);
     mstack.push(17);
     

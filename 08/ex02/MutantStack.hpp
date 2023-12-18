@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:10:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/17 18:33:56 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:56:53 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,25 @@
 #include <stack>
 
 template<typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
-private:
-    std::vector<T> stack;
 public:
     MutantStack(){}
     MutantStack(MutantStack const &other){
-        stack = other.stack;
+        (void)other;
     }
     MutantStack operator = (MutantStack const &other){
-        if (this != &other)
-            stack = other.stack;
+        (void)other;
         return (*this);
     }
     ~MutantStack(){}
-    void push(T const & _a){
-        stack.add_back(_a);
+    typedef typename std::stack<T>::container_type::iterator iterator;
+    iterator begin(){
+        return this->c.begin();
     }
-    void pop(void){
-        
-    }
-    int size(void){
-        return 0;
-    }
-    int top(void){
-        return 0;
-    }
-    T begin(){
-        return 0;
-    }
-    T end(){
-        return 0;
+    iterator end(){
+        return this->c.end();
     }
 };
+
 #endif
