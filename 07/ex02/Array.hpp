@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:42:54 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/12 20:29:20 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/20 22:04:49 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ public:
             this->arr[i] = other.arr[i];
     }
     T &operator [] (unsigned int n)
+    {
+        if (n >= this->n)
+            throw std::runtime_error("invalid index !");
+        return arr[n];
+    }
+    const T &operator [] (unsigned int n) const
     {
         if (n >= this->n)
             throw std::runtime_error("invalid index !");
