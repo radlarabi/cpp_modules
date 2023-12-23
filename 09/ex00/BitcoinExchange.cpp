@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/23 14:48:03 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/23 17:36:36 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ void checkDate(std::string date){
         if (std::atoi(month.c_str()) == 2 &&  std::atoi(day.c_str()) > 28)
             throw std::runtime_error("Error: bad input => " + date);
     }
-
+    int m = atoi(month.c_str());
+    if ((m == 4 || m == 7 || m == 9 || m == 11) && std::atoi(day.c_str()) > 30)
+            throw std::runtime_error("Error: bad input => " + date);
+        
 }
 
 void checkValue(std::string value){
