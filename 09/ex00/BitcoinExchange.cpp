@@ -6,12 +6,56 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/22 22:30:27 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/23 14:48:03 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+unsigned int dateToInt(std::string date){
+    char *end1;
+    std::string year, month, day;
+    std::istringstream splitString(date);
+    
+    std::getline(splitString, year, '-');
+    std::getline(splitString, month, '-');
+    std::getline(splitString, day, '-');
+	std::string key = year + month + day;
+	unsigned long k = std::strtod(key.c_str(), &end1);
+    return k;
+}
 
+float valueToFloat(std::string date){
+    char *end1;
+	float k = std::strtof(date.c_str(), &end1);
+    return k;
+}
+
+void loadData(std::ifstream &input, std::map<unsigned int , float> &myMap)
+{
+    std::string line;
+    getline(input, line);
+    while (getline(input, line))
+    {
+        std::istringstream split(line);
+        std::string date;
+        std::string value;
+        getline(split, date, ',');
+        split >> value;
+        myMap[dateToInt(line)] = valueToFloat(value);
+    }
+}
+
+std::map<unsigned int , float> insertDB(){
+    std::map<unsigned int , float> myMap;
+    std::ifstream input("data.csv");
+    std::string line;
+    if (input.is_open()){
+        loadData(input, myMap);
+    }
+    else
+        throw std::runtime_error("cannot open data.csv !!");    
+    return myMap;
+}
 bool isLeapYear(int year) {
     if (year % 4 == 0) {
         if (year % 100 == 0 && year % 400 != 0) {
@@ -52,10 +96,7 @@ void checkDate(std::string date){
         if (std::atoi(month.c_str()) == 2 &&  std::atoi(day.c_str()) > 28)
             throw std::runtime_error("Error: bad input => " + date);
     }
-    char *end1;
-	std::string key = year + month + day;
-	unsigned long k = std::strtod(key.c_str(), &end1);
-    std::cout << "key = " << key << " k = " << k << std::endl;
+
 }
 
 void checkValue(std::string value){
@@ -63,6 +104,19 @@ void checkValue(std::string value){
         throw std::runtime_error("Error: too large a number.");
     if (std::atoi(value.c_str()) < 0)
         throw std::runtime_error("Error: not a positive number.");
+}
+
+void printValue(std::string a, std::string b, std::map<unsigned int , float> &myMap){
+    unsigned int date = dateToInt(a);
+    float value = valueToFloat(b);
+    if (myMap.find(date) != myMap.end())
+        std::cout << a << " => " << b << " = " << value * myMap[date] << std::endl;
+    else
+    {
+        std::map<unsigned int, float>::iterator it = myMap.lower_bound(date);
+		it--;
+        std::cout << a << " => " << b << " = " << value * it->second  << std::endl;
+    }
 }
 
 void parseLine(std::string line){
@@ -77,10 +131,13 @@ void parseLine(std::string line){
     std::istringstream splitString1(b);
     std::getline(splitString1 , b, ' ');
     splitString1 >> b;
+
+    std::map<unsigned int , float> myMap = insertDB();
+
     try{
         checkDate(a);
         checkValue(b);
-        std::cout << "Ok" << std::endl;
+        printValue(a, b, myMap);
     }
     catch(std::exception &e){
         std::cerr << e.what() << std::endl;

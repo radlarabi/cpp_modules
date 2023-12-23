@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:06:46 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/22 22:21:23 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/23 14:39:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int ac, char **av){
     if (ac == 2)
     {
         try{
-            // std::map<unsigned int, float> myDb = insertDB();
+            
             open_file(av);
         }
         catch(std::exception &e){
