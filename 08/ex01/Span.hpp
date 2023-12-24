@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:25:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/24 14:15:55 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/24 21:24:33 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
     Span &operator = (Span const &other);
     ~Span();
     void addNumber(int _a);
+    void insertAtOnce(int *a, unsigned int size);
     int shortestSpan();
     int longestSpan();
 };

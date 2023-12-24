@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:34:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/17 18:07:23 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/24 21:28:31 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 
 Span::Span():N(0){
-    
+
 }
 
 Span::Span(const int _N):N(_N){
-    
+
 }
 
 Span::Span(Span const &other):N(other.N){
@@ -35,7 +35,7 @@ Span &Span::operator=(Span const &other){
 }
 
 Span::~Span(){
-    
+
 }
 
 void Span::addNumber(int _a){
@@ -49,9 +49,9 @@ int Span::longestSpan(void){
         throw std::runtime_error("the size of the list is 1 !!");
 
     std::vector<int > spanSorted = span;
-    
+
     std::sort(spanSorted.begin(), spanSorted.end());
-    
+
     return spanSorted[spanSorted.size() - 1] - spanSorted[0];
 }
 
@@ -70,6 +70,12 @@ int Span::shortestSpan(void){
         int curentDistance  = spanSorted[i] - spanSorted[i - 1];
         distance = std::min(curentDistance, distance);
     }
-    
+
     return distance;
+}
+
+void Span::insertAtOnce(int *a, unsigned int size){
+    if ((int)size > this->N)
+        throw std::runtime_error("The span cannot store " + N);
+    span.insert(span.begin(), a, a + size);
 }
