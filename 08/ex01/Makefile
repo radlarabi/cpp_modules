@@ -1,17 +1,17 @@
 SRCS = 	main.cpp \
 		Span.cpp
 
-CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = Span
 O_SRCS = $(SRCS:%.cpp=%.o)
 
 RM = rm -rf
-CPP = c++
+CXX = c++
 
 all: $(NAME)
 
 $(NAME): $(O_SRCS)
-	$(CPP) $(CPPFLAGS) $(SRCS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	$(RM) $(O_SRCS)
