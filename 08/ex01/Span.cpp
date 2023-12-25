@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:34:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/25 23:33:04 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/25 23:50:16 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ Span::Span(const int _N):N(_N){
 }
 
 Span::Span(Span const &other):N(other.N){
-    for (int i = 0; i < N; i++)
-        (this->span).push_back(other.span[i]);
+    this->span = other.span;
 }
 
 Span &Span::operator=(Span const &other){
     if (&other != this){
-        for (int i = 0; i < other.N; i++)
-            (this->span).push_back(other.span[i]);
+        this->span = other.span;
     }
     return (*this);
 }
