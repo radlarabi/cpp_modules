@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:34:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/24 21:28:31 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/25 23:33:04 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Span::Span():N(0){
 }
 
 Span::Span(const int _N):N(_N){
-
+    if (N < 0)
+        throw std::runtime_error("Cannot create span with negative size !!");
 }
 
 Span::Span(Span const &other):N(other.N){
@@ -76,6 +77,6 @@ int Span::shortestSpan(void){
 
 void Span::insertAtOnce(int *a, unsigned int size){
     if ((int)size > this->N)
-        throw std::runtime_error("The span cannot store " + N);
+        throw std::runtime_error("The span cannot insert this size !!");
     span.insert(span.begin(), a, a + size);
 }
