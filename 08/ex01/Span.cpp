@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:34:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/25 23:50:16 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/26 18:07:18 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void Span::addNumber(int _a){
 
 int Span::longestSpan(void){
     if(N <= 1)
-        throw std::runtime_error("the size of the list is 1 !!");
+        throw std::runtime_error("the size of the list must be more than 1 !!");
 
     std::vector<int > spanSorted = span;
 
@@ -56,7 +56,7 @@ int Span::longestSpan(void){
 
 int Span::shortestSpan(void){
     if(N <= 1)
-        throw std::runtime_error("the size of the list is 1 !!");
+        throw std::runtime_error("the size of the list must be more than 1 !!");
 
     std::vector<int > spanSorted = span;
 
