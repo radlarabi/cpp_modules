@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:10:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/18 14:56:53 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/26 18:29:06 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,17 @@ public:
     }
     ~MutantStack(){}
     typedef typename std::stack<T>::container_type::iterator iterator;
+    typedef typename std::stack<T>::container_type::const_iterator const_iterator;
     iterator begin(){
         return this->c.begin();
     }
     iterator end(){
+        return this->c.end();
+    }
+    const_iterator begin() const{
+        return this->c.begin();
+    }
+    const_iterator end() const{
         return this->c.end();
     }
 };
