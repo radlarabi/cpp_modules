@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:33:12 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/25 00:21:41 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/26 15:57:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ int main()
 {
     try
     {
-        Span sp = Span(0);
-        (void)sp;
-        int a[] = {87,96,83,79,45,58,76,43,74,93,48,27};
+        Span sp = Span(12);
+        int a[] = {9914, 2497, 7626, 1194, 8924, 3616 ,8472, 9734, 4691, 2338, 8615 ,2606};
         sp.insertAtOnce(a, 12);
 
-        // std::cout << sp.shortestSpan() << std::endl;
-        // std::cout << sp.longestSpan() << std::endl;
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
