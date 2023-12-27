@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:10:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/26 18:29:06 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:29:16 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class MutantStack : public std::stack<T>
 public:
     MutantStack(){}
     MutantStack(MutantStack const &other){
-        (void)other;
+        this->c = other.c;
     }
     MutantStack operator = (MutantStack const &other){
-        (void)other;
+        this->c = other.c;
         return (*this);
     }
     ~MutantStack(){}

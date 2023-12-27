@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:34:04 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/26 18:07:18 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:28:01 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ Span::Span():N(0){
 
 }
 
-Span::Span(const int _N):N(_N){
-    if (N < 0)
-        throw std::runtime_error("Cannot create span with negative size !!");
+Span::Span(unsigned int _N) : N(_N){
+
 }
 
 Span::Span(Span const &other):N(other.N){
@@ -29,6 +28,7 @@ Span::Span(Span const &other):N(other.N){
 Span &Span::operator=(Span const &other){
     if (&other != this){
         this->span = other.span;
+        this->N = other.N;
     }
     return (*this);
 }
@@ -38,7 +38,7 @@ Span::~Span(){
 }
 
 void Span::addNumber(int _a){
-    if ((int)span.size() >= N)
+    if (span.size() >= N)
         throw std::runtime_error("the list is full");
     (this->span).push_back(_a);
 }
@@ -64,7 +64,7 @@ int Span::shortestSpan(void){
 
     int distance  = spanSorted[1] - spanSorted[0];
 
-    for (int i = 2; i < (int)spanSorted.size(); i++)
+    for (unsigned int i = 2; i < spanSorted.size(); i++)
     {
         int curentDistance  = spanSorted[i] - spanSorted[i - 1];
         distance = std::min(curentDistance, distance);
@@ -74,7 +74,7 @@ int Span::shortestSpan(void){
 }
 
 void Span::insertAtOnce(int *a, unsigned int size){
-    if ((int)size > this->N)
+    if (size > this->N)
         throw std::runtime_error("The span cannot insert this size !!");
     span.insert(span.begin(), a, a + size);
 }

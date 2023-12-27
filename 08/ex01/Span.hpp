@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:25:31 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/24 21:24:33 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:20:24 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 class Span
 {
 private:
-    const int N;
+    unsigned int N;
     std::vector<int> span;
 public:
     Span();
-    Span(const int _N);
+    Span(unsigned int _N);
     Span(Span const &other);
     Span &operator = (Span const &other);
     ~Span();
