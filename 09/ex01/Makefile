@@ -1,7 +1,7 @@
 SRCS = 	main.cpp \
 		RPN.cpp
 
-CPPFLAGS =  -Wall -Wextra -Werror -fsanitize=address -g3
+CPPFLAGS =  -Wall -Wextra -Werror
 NAME = RPN
 O_SRCS = $(SRCS:%.cpp=%.o)
 

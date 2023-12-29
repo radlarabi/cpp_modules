@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:03:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/29 15:56:13 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:24:56 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void calculeRpn(std::string str){
             rpn.push(atoi(a));
         }
         if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() < 2)
-            throw std::runtime_error("Error Form of RPN !!1");
+            throw std::runtime_error("Error Form of RPN !!");
         if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() >= 2){
             int t2 = rpn.top();
             rpn.pop();
@@ -71,6 +71,6 @@ void calculeRpn(std::string str){
     }
     
     if (rpn.size() != 1)
-        throw std::runtime_error("Error Form of RPN !!2");
+        throw std::runtime_error("Error Form of RPN !!");
     std::cout << "result : " << rpn.top() << std::endl;
 }
