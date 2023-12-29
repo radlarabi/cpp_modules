@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:03:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/29 01:09:30 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/29 15:56:13 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,47 @@ bool isDigit(char *av){
     }    
     return true;
 }
-int getOperator(int t1, int t2, std::string opr){
-    if(opr == "+")
+
+int getOperator(int t1, int t2, char opr){
+    if(opr == '+')
         return t1 + t2;
-    else if(opr == "-")
+    else if(opr == '-')
         return t1 - t2;
-    else if(opr == "*")
+    else if(opr == '*')
         return t1 * t2;
-    else if(opr == "/"){
+    else if(opr == '/'){
         if (t2 == 0)
             throw std::runtime_error("Divise by 0 !!");
         return t1 / t2; 
     }
     return 0;
 }
-void calculeRpn(int ac, char **av){
+
+void calculeRpn(std::string str){
     std::stack<int> rpn;
     
-    for (int i = 1; i < ac; i++)
+    for (int i = 0; str[i]; i++)
     {
-        std::string t = av[i];
-        if (isDigit(av[i]))
-            rpn.push(std::atoi(av[i]));
-        if ((t == "+" || t == "-" || t == "*" || t == "/") && rpn.size() < 2)
-            throw std::runtime_error("Error Form of RPN !!");
-        if ((t == "+" || t == "-" || t == "*" || t == "/") && rpn.size() >= 2){
+        if (std::isspace(str[i]))
+            continue ;
+        if (isdigit(str[i]))
+        {
+            std::string tmp = &str[i];
+            const char *a = tmp.c_str();
+            rpn.push(atoi(a));
+        }
+        if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() < 2)
+            throw std::runtime_error("Error Form of RPN !!1");
+        if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() >= 2){
             int t2 = rpn.top();
             rpn.pop();
             int t1 = rpn.top();
             rpn.pop();
-            rpn.push(getOperator(t1, t2, t));
+            rpn.push(getOperator(t1, t2, str[i]));
         }
-            
     }
+    
     if (rpn.size() != 1)
-        throw std::runtime_error("Error Form of RPN !!");
+        throw std::runtime_error("Error Form of RPN !!2");
     std::cout << "result : " << rpn.top() << std::endl;
 }
