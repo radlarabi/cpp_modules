@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:03:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/29 00:52:15 by rlarabi          ###   ########.fr       */
+/*   Updated: 2023/12/29 01:09:30 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,24 @@ int getOperator(int t1, int t2, std::string opr){
 }
 void calculeRpn(int ac, char **av){
     std::stack<int> rpn;
-    // int result = 0;
     
     for (int i = 1; i < ac; i++)
     {
         std::string t = av[i];
         if (isDigit(av[i]))
             rpn.push(std::atoi(av[i]));
-        std::cout << "size " << (rpn.size() < 2) << " "  <<(t == "-") << std::endl;
         if ((t == "+" || t == "-" || t == "*" || t == "/") && rpn.size() < 2)
-            std::runtime_error("Error Form of RPN !!");
-        // if ((t == "+" || t == "-" || t == "*" || t == "/") && rpn.size() >= 2){
-        //     int t1 = rpn.top();
-        //     rpn.pop();
-        //     int t2 = rpn.top();
-        //     rpn.pop();
-        //     rpn.push(getOperator(t1, t2, t));
-        // }
+            throw std::runtime_error("Error Form of RPN !!");
+        if ((t == "+" || t == "-" || t == "*" || t == "/") && rpn.size() >= 2){
+            int t2 = rpn.top();
+            rpn.pop();
+            int t1 = rpn.top();
+            rpn.pop();
+            rpn.push(getOperator(t1, t2, t));
+        }
+            
     }
-    display(rpn);
+    if (rpn.size() != 1)
+        throw std::runtime_error("Error Form of RPN !!");
+    std::cout << "result : " << rpn.top() << std::endl;
 }
