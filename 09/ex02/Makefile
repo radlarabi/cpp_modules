@@ -1,7 +1,7 @@
 SRCS = 	main.cpp \
 		PmergeMe.cpp
 
-CPPFLAGS =  -Wall -Wextra -Werror -fsanitize=address -g3
+CPPFLAGS =  -Wall -Wextra -Werror
 NAME = PmergeMe
 O_SRCS = $(SRCS:%.cpp=%.o)
 
