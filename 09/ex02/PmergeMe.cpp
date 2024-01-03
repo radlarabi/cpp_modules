@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:19:09 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/01 17:16:24 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/03 16:03:35 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void merge(std::vector<int> &a, int beg, int mid, int end)
         }    
         k++;    
     }    
-    while (i<n1)    
+    while (i < n1)    
     {    
         a[k] = LeftArray[i];    
         i++;    
         k++;    
     }    
       
-    while (j<n2)    
+    while (j < n2)    
     {    
         a[k] = RightArray[j];    
         j++;    
@@ -107,39 +107,31 @@ void mergeSort(std::vector<int> &a, int beg, int end)
     } 
 }  
 
-void InsertInBig(std::vector<int> &big, std::vector<int> &small){
-    std::vector<int>::iterator itS = small.begin();
+void InsertInLeft(std::vector<int> &left, std::vector<int> &right){
+    std::vector<int>::iterator itS = right.begin();
     
-    while(itS != small.end()){
-        std::vector<int>::iterator position = lower_bound(big.begin(), big.end(), *itS);
-        
-        if(position == big.end())
-            position--;
-        // std::cout << "the position is " << *position << " " <<std::distance(big.begin(), position) << " " << *itS << "\n";
-        big.insert(position, *itS);
+    while(itS != right.end()){
+        std::vector<int>::iterator position = lower_bound(left.begin(), left.end(), *itS);
+        left.insert(position, *itS);
         itS++;
     }
 }
 
 std::vector<int> mergeInsert(std::vector<int> &a){
-    std::vector<int> big;
-    std::vector<int> small;
+    std::vector<int> left;
+    std::vector<int> right;
     unsigned int i = 0;
+
     while(i < a.size()){
         if (i + 1 < a.size()){
-            if (a[i + 1] > a[i]){
-                big.push_back(a[i + 1]);
-                small.push_back(a[i]);
-            }else{
-                big.push_back(a[i]);
-                small.push_back(a[i + 1]);
-            }
+            left.push_back(std::max(a[i], a[i + 1]));
+            right.push_back(std::min(a[i], a[i + 1]));
             i += 2;
         }
         else
-            small.push_back(a[i++]);
+            right.push_back(a[i++]);
     }
-    mergeSort(big, 0, big.size() - 1);
-    InsertInBig(big, small);
-    return big;
+    mergeSort(left, 0, left.size() - 1);
+    InsertInLeft(left, right);
+    return left;
 }
