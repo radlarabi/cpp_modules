@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:19:09 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/01 17:16:24 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/02 22:57:55 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void merge(std::vector<int> &a, int beg, int mid, int end)
     int i, j, k;  
     int n1 = mid - beg + 1;    
     int n2 = end - mid;    
-      
+
     std::vector<int> LeftArray , RightArray ;
       
     for (int i = 0; i < n1; i++)    
         LeftArray.push_back(a[beg + i]);    
     for (int j = 0; j < n2; j++)    
         RightArray.push_back(a[mid + 1 + j]);    
-      
+
     i = 0;  
     j = 0;  
     k = beg;   
@@ -112,34 +112,34 @@ void InsertInBig(std::vector<int> &big, std::vector<int> &small){
     
     while(itS != small.end()){
         std::vector<int>::iterator position = lower_bound(big.begin(), big.end(), *itS);
-        
+
         if(position == big.end())
             position--;
-        // std::cout << "the position is " << *position << " " <<std::distance(big.begin(), position) << " " << *itS << "\n";
         big.insert(position, *itS);
         itS++;
     }
 }
 
 std::vector<int> mergeInsert(std::vector<int> &a){
-    std::vector<int> big;
-    std::vector<int> small;
+    std::vector<int> left;
+    std::vector<int> right;
     unsigned int i = 0;
+
     while(i < a.size()){
         if (i + 1 < a.size()){
             if (a[i + 1] > a[i]){
-                big.push_back(a[i + 1]);
-                small.push_back(a[i]);
+                left.push_back(a[i + 1]);
+                right.push_back(a[i]);
             }else{
-                big.push_back(a[i]);
-                small.push_back(a[i + 1]);
+                left.push_back(a[i]);
+                right.push_back(a[i + 1]);
             }
             i += 2;
         }
         else
-            small.push_back(a[i++]);
+            right.push_back(a[i++]);
     }
-    mergeSort(big, 0, big.size() - 1);
-    InsertInBig(big, small);
-    return big;
+    mergeSort(left, 0, left.size() - 1);
+    InsertInBig(left, right);
+    return left;
 }
