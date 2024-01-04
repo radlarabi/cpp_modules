@@ -6,11 +6,12 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/02 17:58:40 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/04 17:33:56 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
 unsigned int dateToInt(std::string date){
     char *end1;
     std::string year, month, day;
@@ -73,6 +74,7 @@ std::map<unsigned int , float> insertDB(){
         throw std::runtime_error("cannot open data.csv !!");    
     return myMap;
 }
+
 bool isLeapYear(int year) {
     if (year % 4 == 0) {
         if (year % 100 == 0 && year % 400 != 0) {
@@ -185,11 +187,20 @@ void parseLine(std::string line){
     }
     
 }
+
 void checkHeader(std::string line)
 {
-    if (line != "date | value")
+    count_pipes(line);
+    std::istringstream splitString(line);
+    std::string value;
+    std::string date;
+    
+    std::getline(splitString , date, '|');
+    splitString >> value;
+    if (date != "date" && value != "value")
         throw std::runtime_error("Invalid header !");
 }
+
 void open_file(char **av){
     std::string line;
     std::string fileName = av[1];
@@ -197,8 +208,14 @@ void open_file(char **av){
 
     if (!input.is_open())
         std::cerr << "cannot open " << av[1] << std::endl;
-    std::getline(input, line);
-    checkHeader(line);
+    
+    while(std::getline(input, line)){
+        if(trim(line) == "")
+            continue;
+        checkHeader(trim(line));
+        break;
+    }
+    
     while (std::getline(input, line)){
         if(trim(line) == "")
             continue;
