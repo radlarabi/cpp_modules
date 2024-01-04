@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:19:06 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/02 23:24:35 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:28:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,34 @@ int main(int ac, char **av){
         std::cout << "Error Args" << std::endl;
         return 1;
     }
-
-    std::vector<int> arr;
-    std::vector<int> arrSort;
+    
+    std::vector<int> myVector;
+    std::deque<int> myDeque;
     
     try{
-        clock_t start = clock();
+        insertArgs(ac, av, myVector);
+        insertArgs(ac, av, myDeque);
+        
+        display(myVector, "Before : ");
+        
+        clock_t VectorTimeStart = clock();
+        myVector = mergeInsert(myVector);
+        clock_t VectorTimeEnd = clock();
+        
+        clock_t DequeTimeStart = clock();
+        myDeque = mergeInsert(myDeque);
+        clock_t DequeTimeEnd = clock();
 
-        insertArgs(ac, av, arr);
-        display(arr, "Before : ");
-        arr = mergeInsert(arr);
-        display(arr, "After : ");
+
+        display(myVector, "After : ");
+    
+        double VectorTimePerSec = static_cast<double>(VectorTimeEnd - VectorTimeStart) / CLOCKS_PER_SEC;
+        double DequeTimePerSec = static_cast<double>(DequeTimeEnd - DequeTimeStart) / CLOCKS_PER_SEC;
         
-        clock_t end = clock();
-        double vector_f_time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-        std::cout << "Timestamp: " << vector_f_time  << std::endl;
-        
+
+        std::cout << "Time to process a range of " << myVector.size() << " elements with std::vector : " << VectorTimePerSec << std::endl;
+        std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque : " << DequeTimePerSec << std::endl;
+
     }catch(std::exception &e)
     {
         std::cout << e.what() << std::endl;
