@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/04 17:33:56 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/04 17:50:25 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ unsigned int dateToInt(std::string date){
 	std::string key = year + month + day;
 	unsigned int k = std::strtod(key.c_str(), &end1);
     return k;
+}
+
+bool isDigit(const char *av){
+    int i = 0;
+    while(av[i])
+    {
+        if(!isdigit(av[i]))
+        {
+            if (i != 0 && av[i] == '.' && isdigit(av[i + 1]))
+            {
+                i++;
+                continue;
+            }
+            return false;
+        }
+        i++;
+    }    
+    return true;
 }
 
 float valueToFloat(std::string date){
@@ -135,8 +153,12 @@ void checkDate(std::string date){
 void checkValue(std::string value){
     if (value.length() > 4 || std::atoi(value.c_str()) > 1000)
         throw std::runtime_error("Error: too large a number.");
+
     if (std::atoi(value.c_str()) < 0)
         throw std::runtime_error("Error: not a positive number.");
+    
+    if (!isDigit(value.c_str()) || value == "")
+        throw std::runtime_error("Error: not a number.");
 }
 
 void printValue(std::string a, std::string b, std::map<unsigned int , float> &myMap){
