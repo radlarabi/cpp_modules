@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:03:14 by rlarabi           #+#    #+#             */
-/*   Updated: 2023/12/29 18:33:22 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/04 17:14:18 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,18 @@ void calculeRpn(std::string str){
             continue ;
         if (isdigit(str[i]))
         {
-            std::string tmp = &str[i];
+            if (isdigit(str[i + 1]))
+                throw std::runtime_error("Error Form of RPN !!");
+            std::string tmp = str.substr(i, i + 1);
             const char *a = tmp.c_str();
             rpn.push(atoi(a));
         }
+        if (str[i] != '+' && str[i] != '-' && str[i] != '*' && str[i] != '/' && !isdigit(str[i]))
+            throw std::runtime_error("Error Form of RPN !!");
+            
         if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() < 2)
             throw std::runtime_error("Error Form of RPN !!");
+        
         if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && rpn.size() >= 2){
             int t2 = rpn.top();
             rpn.pop();
