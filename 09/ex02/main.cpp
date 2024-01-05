@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:19:06 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/04 15:28:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:58:21 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int main(int ac, char **av){
         double DequeTimePerSec = static_cast<double>(DequeTimeEnd - DequeTimeStart) / CLOCKS_PER_SEC;
         
 
-        std::cout << "Time to process a range of " << myVector.size() << " elements with std::vector : " << VectorTimePerSec << std::endl;
-        std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque : " << DequeTimePerSec << std::endl;
+        std::cout << "Time to process a range of " << myVector.size() << " elements with std::vector : " << VectorTimePerSec << " s" << std::endl;
+        std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque : " << DequeTimePerSec << " s" << std::endl;
 
     }catch(std::exception &e)
     {

@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:18:29 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/04 15:27:43 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:01:30 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool isDigit(char *av);
 template <typename T>
 void display(T arr, const char *a){
     typename T::iterator it = arr.begin();
-    std::cout << a ;
+    std::cout << a << arr.size();
     while(it != arr.end())
     {
         std::cout << *it << " " ;
@@ -52,63 +52,62 @@ void insertArgs(int ac, char **av, T &arr){
 }
 
 template <typename T>
-void merge(T &a, int beg, int mid, int end)    
-{    
-    int i, j, k;  
-    int n1 = mid - beg + 1;    
-    int n2 = end - mid;    
-      
-    T LeftArray , RightArray ;
-      
-    for (int i = 0; i < n1; i++)    
-        LeftArray.push_back(a[beg + i]);    
-    for (int j = 0; j < n2; j++)    
-        RightArray.push_back(a[mid + 1 + j]);    
-      
-    i = 0;  
-    j = 0;  
-    k = beg;   
-      
-    while (i < n1 && j < n2)    
-    {    
-        if(LeftArray[i] <= RightArray[j])    
-        {    
-            a[k] = LeftArray[i];    
-            i++;    
-        }    
-        else    
-        {    
-            a[k] = RightArray[j];    
-            j++;    
-        }    
-        k++;    
-    }    
-    while (i < n1)    
-    {    
-        a[k] = LeftArray[i];    
-        i++;    
-        k++;    
-    }    
-      
-    while (j < n2)    
-    {    
-        a[k] = RightArray[j];    
-        j++;    
-        k++;    
-    }    
-}    
+void merge(T &arr, T &right, T &left){
+
+    int rSize = right.size();
+    int lSize = left.size();
+
+
+    int i = 0, j = 0, k = 0;
+    
+    while(i < rSize && j < lSize){
+        if (right[i] < left[j])
+        {
+            arr[k] = right[i];
+            i++;
+        }
+        else{
+            arr[k] = left[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < rSize)
+    {
+        arr[k] = right[i];
+        k++;
+        i++;
+    }
+
+    while (j < lSize)
+    {
+        arr[k] = left[j];
+        k++;
+        j++;
+    }
+} 
   
 template <typename T>
-void mergeSort(T &a, int beg, int end)  
-{  
-    if (beg < end)   
-    {  
-        int mid = (beg + end) / 2;  
-        mergeSort(a, beg, mid);  
-        mergeSort(a, mid + 1, end);  
-        merge(a, beg, mid, end);
-    } 
-}  
+void mergeSort(T &arr){
+    int size = arr.size();
+    if (size < 2)
+        return ;
+
+    T right, left;
+    
+    int mid = size / 2;
+
+    for (int i = 0; i < mid; i++)
+        right.push_back(arr[i]);
+    for (int i = mid; i < size; i++)
+        left.push_back(arr[i]);
+    
+    mergeSort(right);
+    mergeSort(left);
+    
+    merge(arr, right, left);
+}
 
 template <typename T>
 void InsertInLeft(T &left, T &right){
@@ -136,8 +135,8 @@ T mergeInsert(T &a){
         else
             right.push_back(a[i++]);
     }
-    mergeSort(left, 0, left.size() - 1);
+    mergeSort(a);
     InsertInLeft(left, right);
-    return left;
+    return a;
 }
 #endif
