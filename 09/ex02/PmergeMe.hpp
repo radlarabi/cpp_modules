@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:18:29 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/05 19:03:12 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:03:59 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool isDigit(char *av);
 template <typename T>
 void display(T arr, const char *a){
     typename T::iterator it = arr.begin();
-    
+    std::cout << a ;
     while(it != arr.end())
     {
         std::cout << *it << " " ;
