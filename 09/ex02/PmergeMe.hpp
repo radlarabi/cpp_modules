@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 01:18:29 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/05 19:03:59 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:14:36 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,8 @@ T mergeInsert(T &a){
         else
             right.push_back(a[i++]);
     }
-    mergeSort(a);
+    mergeSort(left);
     InsertInLeft(left, right);
-    return a;
+    return left;
 }
 #endif
