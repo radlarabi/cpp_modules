@@ -6,7 +6,7 @@
 /*   By: rlarabi <rlarabi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:07:23 by rlarabi           #+#    #+#             */
-/*   Updated: 2024/01/04 17:50:25 by rlarabi          ###   ########.fr       */
+/*   Updated: 2024/01/07 12:45:55 by rlarabi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,8 +228,10 @@ void open_file(char **av){
     std::string fileName = av[1];
     std::ifstream input(fileName);
 
-    if (!input.is_open())
+    if (!input.is_open()){
         std::cerr << "cannot open " << av[1] << std::endl;
+        return ;
+    }
     
     while(std::getline(input, line)){
         if(trim(line) == "")
