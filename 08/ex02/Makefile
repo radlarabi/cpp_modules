@@ -1,6 +1,6 @@
 SRCS = 	main.cpp \
 
-CXXFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS =   -Wall -Wextra -Werror
 NAME = Span
 O_SRCS = $(SRCS:%.cpp=%.o)
 

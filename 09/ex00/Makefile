@@ -1,7 +1,7 @@
 SRCS = 	main.cpp \
 		BitcoinExchange.cpp
 
-CPPFLAGS =  -Wall -Wextra -Werror
+CPPFLAGS =  -std=c++98 -Wall -Wextra -Werror
 NAME = btc
 O_SRCS = $(SRCS:%.cpp=%.o)
 
